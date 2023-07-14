@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class ArrowController : MonoBehaviour
 {
-    private float _arrowSpeed = 3.0f;
+    private float _arrowSpeed = 7.0f;
     void Start()
     {
-        
     }
 
     void Update()

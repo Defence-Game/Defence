@@ -22,7 +22,7 @@ public class PlayerController : CreatureController
 
     void LateUpdate()
     {
-        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -1.5f);
+        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -2.5f);
     }
 
     protected override void Move()
