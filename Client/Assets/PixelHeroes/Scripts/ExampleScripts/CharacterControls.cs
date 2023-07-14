@@ -11,7 +11,6 @@ namespace Assets.PixelHeroes.Scripts.ExampleScripts
         public float RunSpeed = 1f;
         public float JumpSpeed = 3f;
         public float CrawlSpeed = 0.25f;
-        public float Gravity = -0.2f;
         public ParticleSystem MoveDust;
         public ParticleSystem JumpDust;
 
@@ -45,18 +44,6 @@ namespace Assets.PixelHeroes.Scripts.ExampleScripts
             else if (Input.GetKeyUp(KeyCode.C)) Character.SetState(AnimationState.Ready);
             else if (Input.GetKeyUp(KeyCode.L)) Character.Blink();
 
-            if (Controller.isGrounded)
-            {
-                if (Input.GetKeyDown(KeyCode.DownArrow))
-                {
-                    GetDown();
-                }
-                else if (Input.GetKeyUp(KeyCode.DownArrow))
-                {
-                    GetUp();
-                }
-            }
-
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 _inputX = -1;
@@ -84,133 +71,12 @@ namespace Assets.PixelHeroes.Scripts.ExampleScripts
 
         private void Move()
         {
-            if (Time.frameCount <= 1)
-            {
-                Controller.Move(new Vector3(0, Gravity) * Time.fixedDeltaTime);
-                return;
-            }
-
-            var state = Character.GetState();
-
-            if (state == AnimationState.Dead) return;
-
-            if (_inputX != 0)
-            {
-                Turn(_inputX);
-            }
-
-            if (Controller.isGrounded)
-            {
-                if (state == AnimationState.Jumping)
-                {
-                    if (Input.GetKey(KeyCode.DownArrow))
-                    {
-                        GetDown();
-                    }
-                    else
-                    {
-                        Character.Animator.SetTrigger("Landed");
-                        Character.SetState(AnimationState.Ready);
-                        JumpDust.Play(true);
-                    }
-                }
-
-                _motion = state == AnimationState.Crawling
-                    ? new Vector3(CrawlSpeed * _inputX, 0)
-                    : new Vector3(RunSpeed * _inputX, JumpSpeed * _inputY);
-
-                if (_inputX != 0 || _inputY != 0)
-                {
-                    if (_inputY > 0)
-                    {
-                        Character.SetState(AnimationState.Jumping);
-                    }
-                    else
-                    {
-                        switch (state)
-                        {
-                            case AnimationState.Idle:
-                            case AnimationState.Ready:
-                                Character.SetState(AnimationState.Running);
-                                break;
-                        }
-                    }
-                }
-                else
-                {
-                    switch (state)
-                    {
-                        case AnimationState.Crawling:
-                        case AnimationState.Climbing:
-                        case AnimationState.Blocking:
-                            break;
-                        default:
-                            var targetState = Time.time - _activityTime > 5 ? AnimationState.Idle : AnimationState.Ready;
-
-                            if (state != targetState)
-                            {
-                                Character.SetState(targetState);
-                            }
-
-                            break;
-                    }
-                }
-            }
-            else
-            {
-                _motion = new Vector3(RunSpeed * _inputX, _motion.y);
-                Character.SetState(AnimationState.Jumping);
-            }
-
-            _motion.y += Gravity;
-
-            Controller.Move(_motion * Time.fixedDeltaTime);
-
-            Character.Animator.SetBool("Grounded", Controller.isGrounded);
-            Character.Animator.SetBool("Moving", Controller.isGrounded && _inputX != 0);
-            Character.Animator.SetBool("Falling", !Controller.isGrounded && Controller.velocity.y < 0);
-
-            if (_inputX != 0 && _inputY != 0 || Character.Animator.GetBool("Action"))
-            {
-                _activityTime = Time.time;
-            }
-
-            _inputX = _inputY = 0;
-
-            if (Controller.isGrounded && !Mathf.Approximately(Controller.velocity.x, 0))
-            {
-                var velocity = MoveDust.velocityOverLifetime;
-
-                velocity.xMultiplier = 0.2f * -Mathf.Sign(Controller.velocity.x);
-
-                if (!MoveDust.isPlaying)
-                {
-                    MoveDust.Play();
-                }
-            }
-            else
-            {
-                MoveDust.Stop();
-            }
+            
         }
 
         private void Turn(int direction)
         {
             Character.transform.localScale = new Vector3(Mathf.Sign(direction), 1, 1);
-        }
-
-        private void GetDown()
-        {
-            Character.Animator.SetTrigger("GetDown");
-            Character.CharacterController.center = new Vector3(0, 0.06f);
-            Character.CharacterController.height = 0.08f;
-        }
-
-        private void GetUp()
-        {
-            Character.Animator.SetTrigger("GetUp");
-            Character.CharacterController.center = new Vector3(0, 0.08f);
-            Character.CharacterController.height = 0.16f;
         }
     }
 }
