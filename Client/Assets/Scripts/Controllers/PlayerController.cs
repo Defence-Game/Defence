@@ -7,17 +7,20 @@ using AnimationState = Assets.PixelHeroes.Scripts.CharacterScrips.AnimationState
 public class PlayerController : CreatureController
 {
     private Coroutine _coAttack;
-    
+    private Rigidbody2D _rigidbody;
+
     private float arrowLifeTime = 3.0f;
     protected override void Start()
     {
         _character.SetState(AnimationState.Idle);
+        _rigidbody = GetComponent<Rigidbody2D>();
         _coAttack = StartCoroutine("CoStartAttack");
     }
 
     protected override void Update()
     {
         base.Update();
+        _rigidbody.velocity = Vector3.zero;
     }
 
     void LateUpdate()
@@ -40,7 +43,8 @@ public class PlayerController : CreatureController
             if (movement.x < 0) transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
             else transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             _character.SetState(AnimationState.Walking);
-            transform.position += movement * Time.deltaTime * _speed;
+            _rigidbody.MovePosition(transform.position + movement * Time.deltaTime * _speed);
+            //transform.position += movement * Time.deltaTime * _speed;
         }
     }
 
@@ -58,6 +62,7 @@ public class PlayerController : CreatureController
             yield return new WaitForSeconds(0.3f);
             _character.Animator.SetTrigger("Attack");
             GameObject arrow = Managers.Resource.Instantiate("Creature/Arrow");
+            arrow.tag = "Player";
             arrow.transform.rotation = ArrowShootAngle();
             arrow.transform.position = transform.position;
             Destroy(arrow,arrowLifeTime);

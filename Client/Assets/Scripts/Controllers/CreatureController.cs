@@ -6,7 +6,7 @@ using AnimationState = Assets.PixelHeroes.Scripts.CharacterScrips.AnimationState
 
 public class CreatureController : MonoBehaviour
 {
-    public float _speed = 1.5f;
+    public float _speed = 5.0f;
     public Character _character;
     public CharacterController Controller;
 
@@ -23,4 +23,15 @@ public class CreatureController : MonoBehaviour
     protected virtual void Move()
     {
     }
+
+    public virtual void OnDamaged()
+    {
+
+    }
+
+    protected virtual void OnCollisionEnter(Collision other)
+    {
+
+    }
+
 }
