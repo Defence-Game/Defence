@@ -7,9 +7,12 @@ using AnimationState = Assets.PixelHeroes.Scripts.CharacterScrips.AnimationState
 public class PlayerController : CreatureController
 {
     private Coroutine _coAttack;
+    private Coroutine _coBlock;
     private Rigidbody2D _rigidbody;
 
+    private bool _isInvincible = false;
     private float arrowLifeTime = 3.0f;
+    protected int _level = 1;
     protected override void Start()
     {
         _character.SetState(AnimationState.Idle);
@@ -60,6 +63,7 @@ public class PlayerController : CreatureController
         while (true)
         {
             yield return new WaitForSeconds(0.3f);
+            if(_character.GetState()== AnimationState.Blocking) continue;
             _character.Animator.SetTrigger("Attack");
             GameObject arrow = Managers.Resource.Instantiate("Creature/Arrow");
             arrow.tag = "Player";
@@ -67,5 +71,16 @@ public class PlayerController : CreatureController
             arrow.transform.position = transform.position;
             Destroy(arrow,arrowLifeTime);
         }
+    }
+
+    IEnumerator CoBlock()
+    {
+        //TODO : 방어시에 깜빡이는거 or 방패 들기 그리고 방어 스킬 키 넣기, 무적 기능도
+        _character.SetState(AnimationState.Blocking);
+        _isInvincible = true;
+        _character.Blink(); // 반짝반짝이기
+        yield return new WaitForSeconds(1.0f);
+        _isInvincible = false;
+        _character.SetState(AnimationState.Idle);
     }
 }
