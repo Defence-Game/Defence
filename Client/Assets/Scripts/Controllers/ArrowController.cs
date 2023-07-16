@@ -7,6 +7,7 @@ public class ArrowController : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
     private float _arrowSpeed = 7.0f;
+    public int _attack = 10; // Arrow damage
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -22,6 +23,7 @@ public class ArrowController : MonoBehaviour
         if (other.gameObject.tag != tag)
         {
             Debug.Log(other.gameObject.name);
+            
             Destroy(gameObject);
         }
             
