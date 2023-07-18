@@ -23,9 +23,14 @@ public class ArrowController : MonoBehaviour
         if (other.gameObject.tag != tag)
         {
             Debug.Log(other.gameObject.name);
-            
+            CreatureController cc = other.gameObject.GetComponent<CreatureController>();
+            cc._hp -= _attack;
+            Debug.Log(cc._hp);
+            if (cc._hp <= 0)
+            {
+                Destroy(other.gameObject);
+            }
             Destroy(gameObject);
         }
-            
     }
 }

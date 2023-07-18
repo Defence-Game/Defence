@@ -169,7 +169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Body: {fileID: 5135726248469029814}
   Animator: {fileID: 5135726249289072055}
-  CharacterController: {fileID: 0}
 --- !u!114 &5135726249289072048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,5 +272,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+  _hp: 100
+  _attack: 10
+  _gold: 0
   _character: {fileID: 5135726249289072049}
   Controller: {fileID: 0}

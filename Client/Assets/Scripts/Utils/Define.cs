@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Define
 {
+    public enum State
+    {
+        Skill,
+        Attack,
+    }
     public enum Scene
     {
         Unknown,

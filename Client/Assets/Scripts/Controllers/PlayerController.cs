@@ -8,8 +8,9 @@ public class PlayerController : CreatureController
 {
     private Coroutine _coAttack;
     private Coroutine _coBlock;
-    private Rigidbody2D _rigidbody;
 
+    private SpriteRenderer _sprite;
+    [SerializeField]
     private bool _isInvincible = false;
     private float arrowLifeTime = 3.0f;
     protected int _level = 1;
@@ -17,13 +18,13 @@ public class PlayerController : CreatureController
     {
         _character.SetState(AnimationState.Idle);
         _rigidbody = GetComponent<Rigidbody2D>();
+        _sprite = GetComponent<SpriteRenderer>();
         _coAttack = StartCoroutine("CoStartAttack");
     }
 
     protected override void Update()
     {
         base.Update();
-        _rigidbody.velocity = Vector3.zero;
     }
 
     void LateUpdate()
@@ -37,7 +38,7 @@ public class PlayerController : CreatureController
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement.Normalize();
-        if (movement == Vector3.zero)
+        if (movement == Vector3.zero && _character.GetState() != AnimationState.Blocking)
         {
             _character.SetState(AnimationState.Idle);
         }
@@ -47,8 +48,13 @@ public class PlayerController : CreatureController
             else transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             _character.SetState(AnimationState.Walking);
             _rigidbody.MovePosition(transform.position + movement * Time.deltaTime * _speed);
-            //transform.position += movement * Time.deltaTime * _speed;
         }
+
+        if (Input.GetKey(KeyCode.Space) && _coBlock==null)
+        {
+            _coBlock = StartCoroutine("CoBlock");
+        }
+
     }
 
     public Quaternion ArrowShootAngle()
@@ -63,7 +69,6 @@ public class PlayerController : CreatureController
         while (true)
         {
             yield return new WaitForSeconds(0.3f);
-            if(_character.GetState()== AnimationState.Blocking) continue;
             _character.Animator.SetTrigger("Attack");
             GameObject arrow = Managers.Resource.Instantiate("Creature/Arrow");
             arrow.tag = "Player";
@@ -75,12 +80,14 @@ public class PlayerController : CreatureController
 
     IEnumerator CoBlock()
     {
-        //TODO : 방어시에 깜빡이는거 or 방패 들기 그리고 방어 스킬 키 넣기, 무적 기능도
-        _character.SetState(AnimationState.Blocking);
         _isInvincible = true;
-        _character.Blink(); // 반짝반짝이기
-        yield return new WaitForSeconds(1.0f);
+        for (int i = 0; i < 5; ++i)
+        {
+            _character.Blink();
+            yield return new WaitForSeconds(0.2f);
+        }
         _isInvincible = false;
-        _character.SetState(AnimationState.Idle);
+        _coBlock = null;
     }
+
 }

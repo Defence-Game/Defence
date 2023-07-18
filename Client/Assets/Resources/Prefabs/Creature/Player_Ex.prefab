@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 7624560270371717122}
   - component: {fileID: 496281797}
   - component: {fileID: 496281798}
+  - component: {fileID: -1567328127469887419}
   m_Layer: 0
   m_Name: Player_Ex
   m_TagString: Monster
@@ -168,7 +169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Body: {fileID: 7624560269417733635}
   Animator: {fileID: 7624560270371717122}
-  CharacterController: {fileID: 0}
 --- !u!114 &7624560270371717125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +224,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -259,3 +259,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15665132, y: 0.18064898}
   m_EdgeRadius: 0
+--- !u!114 &-1567328127469887419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7624560270371717183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48bd353b892da9e4eb38b17a69dbb234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  _hp: 100
+  _attack: 10
+  _gold: 0
+  _character: {fileID: 0}
+  Controller: {fileID: 0}

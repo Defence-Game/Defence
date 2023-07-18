@@ -11,17 +11,21 @@ public class CreatureController : MonoBehaviour
     public int _attack = 10;
     public int _gold = 0;
 
+    protected Rigidbody2D _rigidbody;
     public Character _character;
     public CharacterController Controller;
 
+    protected Coroutine _coOnDamaged;
+
     protected virtual void Start()
     {
-        
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     protected virtual void Update()
     {
         Move();
+        _rigidbody.velocity = Vector2.zero;
     }
 
     protected virtual void Move()
@@ -32,6 +36,5 @@ public class CreatureController : MonoBehaviour
     {
 
     }
-
 
 }

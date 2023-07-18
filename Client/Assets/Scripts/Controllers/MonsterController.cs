@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class MonsterController : CreatureController
 {
-
+    
     protected override void Start()
     {
         base.Start();
+        
+        
     }
 
     protected override void Update()
@@ -20,4 +22,5 @@ public class MonsterController : CreatureController
         
     }
 
+    
 }
