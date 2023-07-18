@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 2692000994923685546}
   - component: {fileID: 7989740024222553913}
   - component: {fileID: 477320083258840690}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Elf_021
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,8 +278,8 @@ MonoBehaviour:
   _hp: 100
   _attack: 10
   _gold: 0
-  _character: {fileID: 0}
-  Controller: {fileID: 0}
+  _character: {fileID: 5135726249289072049}
+  _target: {fileID: 0}
 --- !u!50 &7989740024222553913
 Rigidbody2D:
   serializedVersion: 4

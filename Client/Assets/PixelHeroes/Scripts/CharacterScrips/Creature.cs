@@ -10,6 +10,7 @@ namespace Assets.PixelHeroes.Scripts.CharacterScrips
         private static Material DefaultMaterial;
         private static Material BlinkMaterial;
 
+        private static float time = 0f;
         public void Blink()
         {
             if (DefaultMaterial == null) DefaultMaterial = Body.sharedMaterial;

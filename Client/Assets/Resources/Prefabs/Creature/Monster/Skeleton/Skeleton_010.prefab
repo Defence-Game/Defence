@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 1477859097507782692}
   - component: {fileID: 7132512026284762502}
   - component: {fileID: 8385625426989461055}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Skeleton_010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,5 +325,5 @@ MonoBehaviour:
   _hp: 100
   _attack: 10
   _gold: 0
-  _character: {fileID: 0}
-  Controller: {fileID: 0}
+  _character: {fileID: 5135726249289072049}
+  _target: {fileID: 0}
