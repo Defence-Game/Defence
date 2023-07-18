@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 1725880118, guid: 72e093062a9b99e468c3db67310a669c, type: 3}
+  m_Sprite: {fileID: -1951321931, guid: d7d6cdacb1886934fa0e997ae6e334ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,52 +104,52 @@ MonoBehaviour:
     m_CategoryList:
     - m_Name: 0
       m_Hash: 0
-      m_Sprite: {fileID: 1653440392, guid: 72e093062a9b99e468c3db67310a669c, type: 3}
+      m_Sprite: {fileID: -1491959093, guid: d7d6cdacb1886934fa0e997ae6e334ee, type: 3}
     - m_Name: 1
       m_Hash: 0
-      m_Sprite: {fileID: 36192256, guid: 72e093062a9b99e468c3db67310a669c, type: 3}
+      m_Sprite: {fileID: -1013253520, guid: d7d6cdacb1886934fa0e997ae6e334ee, type: 3}
     - m_Name: 2
       m_Hash: 0
-      m_Sprite: {fileID: 799627025, guid: 72e093062a9b99e468c3db67310a669c, type: 3}
+      m_Sprite: {fileID: 1427225858, guid: d7d6cdacb1886934fa0e997ae6e334ee, type: 3}
     - m_Name: 3
       m_Hash: 0
-      m_Sprite: {fileID: -1829802288, guid: 72e093062a9b99e468c3db67310a669c, type: 3}
+      m_Sprite: {fileID: -1347741848, guid: d7d6cdacb1886934fa0e997ae6e334ee, type: 3}
   - m_Name: Death
     m_Hash: 0
     m_CategoryList:
     - m_Name: 0
       m_Hash: 0
-      m_Sprite: {fileID: -1430831107, guid: 72e093062a9b99e468c3db67310a669c, type: 3}
+      m_Sprite: {fileID: 56143281, guid: d7d6cdacb1886934fa0e997ae6e334ee, type: 3}
     - m_Name: 1
       m_Hash: 0
-      m_Sprite: {fileID: 1572299935, guid: 72e093062a9b99e468c3db67310a669c, type: 3}
+      m_Sprite: {fileID: 1137951081, guid: d7d6cdacb1886934fa0e997ae6e334ee, type: 3}
     - m_Name: 2
       m_Hash: 0
-      m_Sprite: {fileID: 78455816, guid: 72e093062a9b99e468c3db67310a669c, type: 3}
+      m_Sprite: {fileID: -952825886, guid: d7d6cdacb1886934fa0e997ae6e334ee, type: 3}
   - m_Name: Idle
     m_Hash: 0
     m_CategoryList:
     - m_Name: 0
       m_Hash: 0
-      m_Sprite: {fileID: 1725880118, guid: 72e093062a9b99e468c3db67310a669c, type: 3}
+      m_Sprite: {fileID: -1951321931, guid: d7d6cdacb1886934fa0e997ae6e334ee, type: 3}
     - m_Name: 1
       m_Hash: 0
-      m_Sprite: {fileID: -1405845836, guid: 72e093062a9b99e468c3db67310a669c, type: 3}
+      m_Sprite: {fileID: 1763748751, guid: d7d6cdacb1886934fa0e997ae6e334ee, type: 3}
   - m_Name: Run
     m_Hash: 0
     m_CategoryList:
     - m_Name: 0
       m_Hash: 0
-      m_Sprite: {fileID: -620449520, guid: 72e093062a9b99e468c3db67310a669c, type: 3}
+      m_Sprite: {fileID: 1507379706, guid: d7d6cdacb1886934fa0e997ae6e334ee, type: 3}
     - m_Name: 1
       m_Hash: 0
-      m_Sprite: {fileID: -1342550443, guid: 72e093062a9b99e468c3db67310a669c, type: 3}
+      m_Sprite: {fileID: 1760034287, guid: d7d6cdacb1886934fa0e997ae6e334ee, type: 3}
     - m_Name: 2
       m_Hash: 0
-      m_Sprite: {fileID: 2085032867, guid: 72e093062a9b99e468c3db67310a669c, type: 3}
+      m_Sprite: {fileID: -622808836, guid: d7d6cdacb1886934fa0e997ae6e334ee, type: 3}
     - m_Name: 3
       m_Hash: 0
-      m_Sprite: {fileID: -2130845850, guid: 72e093062a9b99e468c3db67310a669c, type: 3}
+      m_Sprite: {fileID: -1620581349, guid: d7d6cdacb1886934fa0e997ae6e334ee, type: 3}
   m_SpriteLibraryAsset: {fileID: 11400000, guid: 05b60a1b9c684e14aae52d1717c4492e,
     type: 2}
 --- !u!114 &5135726248469029812
@@ -178,11 +178,12 @@ GameObject:
   - component: {fileID: 5135726249289072053}
   - component: {fileID: 5135726249289072049}
   - component: {fileID: 5135726249289072048}
-  - component: {fileID: 5135726249289072054}
   - component: {fileID: 5135726249289072055}
-  - component: {fileID: 5135726249289072052}
+  - component: {fileID: 2692000994923685546}
+  - component: {fileID: 7989740024222553913}
+  - component: {fileID: 477320083258840690}
   m_Layer: 0
-  m_Name: goblin031
+  m_Name: Elf_021
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,7 +219,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Body: {fileID: 5135726248469029814}
   Animator: {fileID: 5135726249289072055}
-  CharacterController: {fileID: 5135726249289072052}
 --- !u!114 &5135726249289072048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,25 +242,6 @@ MonoBehaviour:
   Cape: 
   Back: LeatherQuiver#FFFFFF/0:0:0
   SpriteLibrary: {fileID: 5135726248469029815}
---- !u!114 &5135726249289072054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5135726249289072010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfde90b8808cf934384558d7214db716, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Character: {fileID: 5135726249289072049}
-  Controller: {fileID: 5135726249289072052}
-  RunSpeed: 1
-  JumpSpeed: 3
-  CrawlSpeed: 0.25
-  MoveDust: {fileID: 0}
-  JumpDust: {fileID: 0}
 --- !u!95 &5135726249289072055
 Animator:
   serializedVersion: 4
@@ -281,21 +262,68 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!143 &5135726249289072052
-CharacterController:
+--- !u!114 &2692000994923685546
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5135726249289072010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48bd353b892da9e4eb38b17a69dbb234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  _hp: 100
+  _attack: 10
+  _gold: 0
+  _character: {fileID: 0}
+  Controller: {fileID: 0}
+--- !u!50 &7989740024222553913
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5135726249289072010}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &477320083258840690
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5135726249289072010}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.019868106, y: -0.005518943}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Height: 0.16
-  m_Radius: 0.06
-  m_SlopeLimit: 45
-  m_StepOffset: 0.02
-  m_SkinWidth: 0.0001
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.08, z: 0}
+  m_Size: {x: 0.14787811, y: 0.18099159}
+  m_EdgeRadius: 0

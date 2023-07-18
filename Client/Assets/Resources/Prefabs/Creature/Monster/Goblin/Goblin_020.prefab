@@ -178,11 +178,12 @@ GameObject:
   - component: {fileID: 5135726249289072053}
   - component: {fileID: 5135726249289072049}
   - component: {fileID: 5135726249289072048}
-  - component: {fileID: 5135726249289072054}
   - component: {fileID: 5135726249289072055}
-  - component: {fileID: 5135726249289072052}
+  - component: {fileID: 1481519614987030786}
+  - component: {fileID: 2234127229182644411}
+  - component: {fileID: 8547675080492032691}
   m_Layer: 0
-  m_Name: goblin020
+  m_Name: Goblin_020
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,7 +219,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Body: {fileID: 5135726248469029814}
   Animator: {fileID: 5135726249289072055}
-  CharacterController: {fileID: 5135726249289072052}
 --- !u!114 &5135726249289072048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,25 +242,6 @@ MonoBehaviour:
   Cape: 
   Back: LeatherQuiver#FFFFFF/0:0:0
   SpriteLibrary: {fileID: 5135726248469029815}
---- !u!114 &5135726249289072054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5135726249289072010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfde90b8808cf934384558d7214db716, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Character: {fileID: 5135726249289072049}
-  Controller: {fileID: 5135726249289072052}
-  RunSpeed: 1
-  JumpSpeed: 3
-  CrawlSpeed: 0.25
-  MoveDust: {fileID: 0}
-  JumpDust: {fileID: 0}
 --- !u!95 &5135726249289072055
 Animator:
   serializedVersion: 4
@@ -281,21 +262,68 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!143 &5135726249289072052
-CharacterController:
+--- !u!61 &1481519614987030786
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5135726249289072010}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.011053413, y: -0.0030145645}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Height: 0.16
-  m_Radius: 0.06
-  m_SlopeLimit: 45
-  m_StepOffset: 0.02
-  m_SkinWidth: 0.0001
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.08, z: 0}
+  m_Size: {x: 0.10969597, y: 0.16596794}
+  m_EdgeRadius: 0
+--- !u!50 &2234127229182644411
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5135726249289072010}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &8547675080492032691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5135726249289072010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48bd353b892da9e4eb38b17a69dbb234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  _hp: 100
+  _attack: 10
+  _gold: 0
+  _character: {fileID: 0}
+  Controller: {fileID: 0}
