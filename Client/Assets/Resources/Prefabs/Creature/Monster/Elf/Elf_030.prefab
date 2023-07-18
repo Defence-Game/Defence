@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 2653714867252004768}
   - component: {fileID: 7801079325662095462}
   - component: {fileID: 9155311227896333869}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Elf_030
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,5 +325,5 @@ MonoBehaviour:
   _hp: 100
   _attack: 10
   _gold: 0
-  _character: {fileID: 0}
-  Controller: {fileID: 0}
+  _character: {fileID: 5135726249289072049}
+  _target: {fileID: 0}

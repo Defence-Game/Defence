@@ -6,17 +6,18 @@ public class GameScene : BaseScene
 {
     // TODO
     // 스테이지 레벨에 맞춰 몬스터 hp,돈 늘리기
+    public static int StageLevel { get; set; } = 1;
     protected override void Init()
     {
         base.Init();
 
         SceneType = Define.Scene.Game;
 
+
         Managers.Map.LoadMap(1);
 
-        GameObject player = Managers.Resource.Instantiate("Creature/Player");
+        player = Managers.Resource.Instantiate("Creature/Player");
         player.name = "Player";
-
 
         //Managers.UI.ShowSceneUI<UI_Inven>();
         //Dictionary<int, Data.Stat> dict = Managers.Data.StatDict;
@@ -31,6 +32,10 @@ public class GameScene : BaseScene
         //pool.SetKeepMonsterCount(2);
     }
 
+    public void NextStage()
+    {
+        ++StageLevel;
+    }
     public override void Clear()
     {
         

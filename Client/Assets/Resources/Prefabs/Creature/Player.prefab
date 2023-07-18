@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5135726248469029814}
   - component: {fileID: 5135726248469029815}
   - component: {fileID: 5135726248469029812}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 496281797}
   - component: {fileID: 496281798}
   - component: {fileID: 496281789}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -277,3 +277,4 @@ MonoBehaviour:
   _gold: 0
   _character: {fileID: 5135726249289072049}
   Controller: {fileID: 0}
+  _isInvincible: 0

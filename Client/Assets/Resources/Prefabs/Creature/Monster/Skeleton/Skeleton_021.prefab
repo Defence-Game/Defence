@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 1029842913251460605}
   - component: {fileID: 5129242713422517886}
   - component: {fileID: 2301229120661314564}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Skeleton_021
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,8 +278,8 @@ MonoBehaviour:
   _hp: 100
   _attack: 10
   _gold: 0
-  _character: {fileID: 0}
-  Controller: {fileID: 0}
+  _character: {fileID: 5135726249289072049}
+  _target: {fileID: 0}
 --- !u!50 &5129242713422517886
 Rigidbody2D:
   serializedVersion: 4

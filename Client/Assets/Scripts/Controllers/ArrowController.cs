@@ -7,7 +7,8 @@ public class ArrowController : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
     private float _arrowSpeed = 7.0f;
-    public int _attack = 10; // Arrow damage
+    public static int _attack = (GameScene.StageLevel/2)*10+10;
+    public int Attack { get; set; }
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();

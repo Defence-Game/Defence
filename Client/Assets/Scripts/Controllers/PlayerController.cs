@@ -13,10 +13,9 @@ public class PlayerController : CreatureController
     [SerializeField]
     private bool _isInvincible = false;
     private float arrowLifeTime = 3.0f;
-    protected int _level = 1;
+    
     protected override void Start()
     {
-        _character.SetState(AnimationState.Idle);
         _rigidbody = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<SpriteRenderer>();
         _coAttack = StartCoroutine("CoStartAttack");
