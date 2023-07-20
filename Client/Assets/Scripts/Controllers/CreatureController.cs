@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Assets.PixelHeroes.Scripts.CharacterScrips;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using AnimationState = Assets.PixelHeroes.Scripts.CharacterScrips.AnimationState;
 
@@ -15,14 +16,15 @@ public class CreatureController : MonoBehaviour
     protected Rigidbody2D _rigidbody;
     protected Collider2D _collider;
     public Character _character;
-    
     protected Coroutine _coOnDamaged;
+
 
     protected virtual void Start()
     {
         _character.SetState(AnimationState.Idle);
         _rigidbody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
+
         SetState();
     }
 
