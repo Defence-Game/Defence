@@ -10,8 +10,9 @@ public class Managers : MonoBehaviour
 	#region Contents
 
     private MapManager _map = new MapManager();
-
+    private MonsterManager _monster = new MonsterManager();
     public static MapManager Map { get { return Instance._map; } }
+    public static MonsterManager Monster { get { return Instance._monster; } }
 	#endregion
 
 	#region Core

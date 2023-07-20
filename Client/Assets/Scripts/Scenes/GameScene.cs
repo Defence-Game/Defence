@@ -19,6 +19,12 @@ public class GameScene : BaseScene
         player = Managers.Resource.Instantiate("Creature/Player");
         player.name = "Player";
 
+        Managers.Monster.MakeMonster(Define.MonsterType.Skeleton,10);
+        Managers.Monster.MakeMonster(Define.MonsterType.Skeleton,11);
+        Managers.Monster.MakeMonster(Define.MonsterType.Skeleton,20);
+        Managers.Monster.MakeMonster(Define.MonsterType.Skeleton,21);
+        Managers.Monster.MakeMonster(Define.MonsterType.Skeleton,30);
+
         //Managers.UI.ShowSceneUI<UI_Inven>();
         //Dictionary<int, Data.Stat> dict = Managers.Data.StatDict;
         //gameObject.GetOrAddComponent<CursorController>();
