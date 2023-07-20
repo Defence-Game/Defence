@@ -13,6 +13,7 @@ public class CreatureController : MonoBehaviour
     protected float _range = 1.0f;
 
     protected Rigidbody2D _rigidbody;
+    protected Collider2D _collider;
     public Character _character;
     
     protected Coroutine _coOnDamaged;
@@ -21,12 +22,13 @@ public class CreatureController : MonoBehaviour
     {
         _character.SetState(AnimationState.Idle);
         _rigidbody = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<Collider2D>();
         SetState();
     }
 
     protected virtual void Update()
     {
-        Move();
+        if(_hp>0)Move();
         _rigidbody.velocity = Vector2.zero;
     }
 
@@ -35,9 +37,15 @@ public class CreatureController : MonoBehaviour
 
     }
 
-    public virtual void OnDamaged()
+    public virtual void OnDamaged(int damage)
     {
-
+        _hp -= damage;
+        if (_hp <= 0)
+        {
+            _character.SetState(AnimationState.Dead);
+            _collider.enabled = false;
+            Destroy(gameObject,2f);
+        }
     }
     public void SetState()
     {

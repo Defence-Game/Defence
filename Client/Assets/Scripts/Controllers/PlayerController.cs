@@ -8,7 +8,9 @@ public class PlayerController : CreatureController
 {
     private Coroutine _coAttack;
     private Coroutine _coBlock;
-
+    [SerializeField]
+    private float _coolDown=0.0f;
+    private float _coolTime = 10.0f;
     private SpriteRenderer _sprite;
     [SerializeField]
     private bool _isInvincible = false;
@@ -24,6 +26,7 @@ public class PlayerController : CreatureController
     protected override void Update()
     {
         base.Update();
+        _coolDown -= Time.deltaTime;
     }
 
     void LateUpdate()
@@ -49,7 +52,7 @@ public class PlayerController : CreatureController
             _rigidbody.MovePosition(transform.position + movement * Time.deltaTime * _speed);
         }
 
-        if (Input.GetKey(KeyCode.Space) && _coBlock==null)
+        if (Input.GetKey(KeyCode.Space) && _coBlock==null && _coolDown<0)
         {
             _coBlock = StartCoroutine("CoBlock");
         }
@@ -61,6 +64,11 @@ public class PlayerController : CreatureController
         Vector2 dir = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,Camera.main.transform.position.z)) - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         return Quaternion.AngleAxis(angle+90, Vector3.forward);
+    }
+
+    public override void OnDamaged(int damage)
+    {
+        base.OnDamaged(damage);
     }
 
     IEnumerator CoStartAttack()
@@ -87,6 +95,7 @@ public class PlayerController : CreatureController
         }
         _isInvincible = false;
         _coBlock = null;
+        _coolDown = _coolTime;
     }
 
 }

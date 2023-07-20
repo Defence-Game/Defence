@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Define
 {
+    public enum MonsterType
+    {
+        Elf,
+        Goblin,
+        Skeleton
+    }
+
     public enum State
     {
         Skill,

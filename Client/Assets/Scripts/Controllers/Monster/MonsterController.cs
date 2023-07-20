@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Net.Sockets;
 using Assets.PixelHeroes.Scripts.CollectionScripts;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class MonsterController : CreatureController
 
     private Coroutine _coSearch;
     private int _layerMask;
-    protected override void Start()
+    protected virtual void Start()
     {
         base.Start();
         _layerMask = (1 << LayerMask.NameToLayer("Player"));
@@ -46,6 +47,7 @@ public class MonsterController : CreatureController
             _rigidbody.MovePosition(transform.position + dir.normalized * _speed * Time.deltaTime);
         }
     }
+
 
     IEnumerator CoSearch() 
     {
