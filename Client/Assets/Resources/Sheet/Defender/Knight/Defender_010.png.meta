@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -973,7 +973,7 @@ TextureImporter:
       Defender_010_0: -1064915693
       Defender_010_18: 2083153741
       Defender_010_25: -1522751235
-      Defender_010_37: -862055898
+      Defender_010_5: 1548716602
       Defender_010_21: -1355038883
       Defender_010_29: 779390040
       Defender_010_10: -1620600164
@@ -991,8 +991,8 @@ TextureImporter:
       Defender_010_24: -137777132
       Defender_010_35: -1159419417
       Defender_010_9: 1896845350
-      Defender_010_5: 1548716602
       Defender_010_33: 1859615929
+      Defender_010_37: -862055898
       Defender_010_27: -591773942
   spritePackingTag: 
   pSDRemoveMatte: 0
