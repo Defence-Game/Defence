@@ -18,6 +18,7 @@ public class GameScene : BaseScene
 
         player = Managers.Resource.Instantiate("Creature/Player");
         player.name = "Player";
+        
 
         Managers.Monster.MakeMonster(Define.MonsterType.Skeleton,10);
         Managers.Monster.MakeMonster(Define.MonsterType.Skeleton,11);
