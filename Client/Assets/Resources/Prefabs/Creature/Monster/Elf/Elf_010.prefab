@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 5135726249289072055}
   - component: {fileID: -6853789249512018567}
   - component: {fileID: -4014738421789145197}
-  - component: {fileID: -6061132687331537186}
+  - component: {fileID: 7180450687257059386}
   m_Layer: 8
   m_Name: Elf_010
   m_TagString: Untagged
@@ -309,7 +309,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.13921352, y: 0.1678268}
   m_EdgeRadius: 0
---- !u!114 &-6061132687331537186
+--- !u!114 &7180450687257059386
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5135726249289072010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48bd353b892da9e4eb38b17a69dbb234, type: 3}
+  m_Script: {fileID: 11500000, guid: 36821c209957cbd4c9e7a0bf8bd35d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5

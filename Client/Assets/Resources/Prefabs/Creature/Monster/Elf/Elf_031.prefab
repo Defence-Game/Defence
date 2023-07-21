@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 6636835887930509779}
   - component: {fileID: 7325820574355183636}
   - component: {fileID: 1093978200126497068}
+  - component: {fileID: 2492624490667259227}
   m_Layer: 8
   m_Name: Elf_031
   m_TagString: Untagged
@@ -327,3 +328,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1399967, y: 0.2017405}
   m_EdgeRadius: 0
+--- !u!114 &2492624490667259227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5135726249289072010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5204c2848685bd45b39894dfe1516b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  _hp: 100
+  _attack: 10
+  _gold: 0
+  _character: {fileID: 5135726249289072049}
+  _target: {fileID: 0}

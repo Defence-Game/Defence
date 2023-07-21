@@ -26,6 +26,11 @@ public class MonsterController : CreatureController
         base.Update();
     }
 
+    protected virtual void Attack()
+    {
+
+    }
+
     protected override void Move()
     {
         if (_target != null)
@@ -40,9 +45,10 @@ public class MonsterController : CreatureController
                 transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             }
 
-            if (dir.magnitude <= _range)
+            if (dir.magnitude <= _attRange)
             {
                 // TODO : 플레이어 Attack 하는 부분, 플레이어와 거리가 사정거리 보다 짧다면 공격
+                Attack();
             }
             _rigidbody.MovePosition(transform.position + dir.normalized * _speed * Time.deltaTime);
         }

@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MageController : MonoBehaviour
+public class MageController : MonsterController
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        
+        base.Start();
+        _attRange = (float)Define.MonsterAttRange.Mage;
+        _range = _attRange * 2;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Attack()
     {
-        
+
     }
 }

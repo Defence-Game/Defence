@@ -7,8 +7,8 @@ public class ArrowController : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
     private float _arrowSpeed = 7.0f;
-    public static int _attack = (GameScene.StageLevel/2)*10+10;
-    public int Attack { get; set; }
+    public static int _attack = (GameScene.StageLevel/2)*10+ 10;
+    public int Attack { get { return (GameScene.StageLevel / 2) * 10 + 10;}}
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -25,7 +25,7 @@ public class ArrowController : MonoBehaviour
         {
             Debug.Log(other.gameObject.name);
             CreatureController cc = other.gameObject.GetComponent<CreatureController>();
-            cc.OnDamaged(_attack);
+            cc.OnDamaged(Attack);
             Destroy(gameObject);
         }
     }
