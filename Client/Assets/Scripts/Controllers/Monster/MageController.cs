@@ -7,14 +7,10 @@ public class MageController : MonsterController
     protected override void Start()
     {
         base.Start();
-        _attRange = (float)Define.MonsterAttRange.Mage;
+        _attRange = (float)Define.AttRange.Mage;
         _range = _attRange * 2;
     }
 
-    protected override void Attack()
-    {
-
-    }
     IEnumerator CoStartAttack()
     {
         _character.Animator.SetTrigger("Attack");

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Define
 {
-    public enum  MonsterAttRange
+    public enum  AttRange
     {
         Knight = 1,
         Archer = 3,

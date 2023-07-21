@@ -7,14 +7,10 @@ public class ArcherController : MonsterController
     protected override void Start()
     {
         base.Start();
-        _attRange = (float)Define.MonsterAttRange.Archer;
+        _attRange = (float)Define.AttRange.Archer;
         _range = _attRange * 2;
     }
 
-    protected override void Attack()
-    {
-
-    }
     IEnumerator CoStartAttack()
     {
         _character.Animator.SetTrigger("Attack");

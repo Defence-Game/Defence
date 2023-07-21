@@ -44,14 +44,6 @@ public class CreatureController : MonoBehaviour
 
     public virtual void OnDamaged(int damage)
     {
-        
-        _hp -= damage;
-        if (_hp <= 0)
-        {
-            _character.SetState(AnimationState.Dead);
-            _collider.enabled = false;
-            Destroy(gameObject,2f);
-        }
     }
     public void SetState()
     {
