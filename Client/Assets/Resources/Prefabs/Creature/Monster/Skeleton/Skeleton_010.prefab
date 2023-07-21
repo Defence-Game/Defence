@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 5135726249289072055}
   - component: {fileID: 1477859097507782692}
   - component: {fileID: 7132512026284762502}
-  - component: {fileID: 8385625426989461055}
+  - component: {fileID: 1125353683910903827}
   m_Layer: 8
   m_Name: Skeleton_010
   m_TagString: Untagged
@@ -309,7 +309,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8385625426989461055
+--- !u!114 &1125353683910903827
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -318,12 +318,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5135726249289072010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48bd353b892da9e4eb38b17a69dbb234, type: 3}
+  m_Script: {fileID: 11500000, guid: 36821c209957cbd4c9e7a0bf8bd35d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
-  _hp: 100
-  _attack: 10
-  _gold: 0
-  _character: {fileID: 5135726249289072049}
-  _target: {fileID: 0}

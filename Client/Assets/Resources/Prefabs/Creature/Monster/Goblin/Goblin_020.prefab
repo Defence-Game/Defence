@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 5135726249289072055}
   - component: {fileID: 1481519614987030786}
   - component: {fileID: 2234127229182644411}
-  - component: {fileID: 8547675080492032691}
+  - component: {fileID: 6850002845461201204}
   m_Layer: 8
   m_Name: Goblin_020
   m_TagString: Untagged
@@ -309,7 +309,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8547675080492032691
+--- !u!114 &6850002845461201204
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -318,12 +318,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5135726249289072010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48bd353b892da9e4eb38b17a69dbb234, type: 3}
+  m_Script: {fileID: 11500000, guid: 640d471020d15d64db2a66d97e8af8f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
   _hp: 100
   _attack: 10
   _gold: 0
-  _character: {fileID: 5135726249289072049}
+  _character: {fileID: 0}
   _target: {fileID: 0}
