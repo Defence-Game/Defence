@@ -11,7 +11,8 @@ public class CreatureController : MonoBehaviour
     public int _attack = 10;
     public int _gold = 0;
     protected float _range = 1.0f;
-
+    protected float _attRange;
+    
     protected Rigidbody2D _rigidbody;
     protected Collider2D _collider;
     public Character _character;
