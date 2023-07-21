@@ -12,6 +12,12 @@ public class Define
         Mage = 3
     }
 
+    public enum DefenderType
+    {
+        Knight=10,
+        Archer=20,
+        Mage=30
+    }
     public enum MonsterType
     {
         Elf,

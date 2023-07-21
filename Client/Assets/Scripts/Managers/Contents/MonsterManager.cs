@@ -8,7 +8,7 @@ public class MonsterManager
     {
         string monsterName = type.ToString() + "_" + monsterId.ToString("000");
         GameObject go = Managers.Resource.Instantiate($"Creature/Monster/{type.ToString()}/{monsterName}");
-        go.name = type.ToString();
+        go.name = "Monster"+type.ToString();
     }
 
 }
