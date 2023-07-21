@@ -12,6 +12,7 @@ public class MonsterController : CreatureController
     private GameObject _target;
 
     private Coroutine _coSearch;
+
     private int _layerMask;
     protected virtual void Start()
     {
@@ -23,7 +24,8 @@ public class MonsterController : CreatureController
 
     protected override void Update()
     {
-        base.Update();
+        if (_hp > 0 && _coAttack == null && _target) Move();
+        _rigidbody.velocity = Vector2.zero;
     }
 
     protected virtual void Attack()
@@ -48,13 +50,17 @@ public class MonsterController : CreatureController
             if (dir.magnitude <= _attRange)
             {
                 // TODO : 플레이어 Attack 하는 부분, 플레이어와 거리가 사정거리 보다 짧다면 공격
-                Attack();
+                if (_coAttack == null) _coAttack = StartCoroutine("CoStartAttack");
             }
             _rigidbody.MovePosition(transform.position + dir.normalized * _speed * Time.deltaTime);
         }
     }
-
-
+    protected Quaternion AttackAngle()
+    {
+        Vector2 dir = _target.transform.position - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        return Quaternion.AngleAxis(angle -90 , Vector3.forward);
+    }
     IEnumerator CoSearch() 
     {
         while (true)

@@ -6,7 +6,6 @@ using AnimationState = Assets.PixelHeroes.Scripts.CharacterScrips.AnimationState
 
 public class PlayerController : CreatureController
 {
-    private Coroutine _coAttack;
     private Coroutine _coBlock;
     [SerializeField]
     private float _coolDown=0.0f;
@@ -14,7 +13,7 @@ public class PlayerController : CreatureController
     private SpriteRenderer _sprite;
     [SerializeField]
     private bool _isInvincible = false;
-    private float arrowLifeTime = 3.0f;
+    private bool _isAlive = true;
     
     protected override void Start()
     {
@@ -59,29 +58,35 @@ public class PlayerController : CreatureController
 
     }
 
-    public Quaternion ArrowShootAngle()
-    {
-        Vector2 dir = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,Camera.main.transform.position.z)) - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        return Quaternion.AngleAxis(angle+90, Vector3.forward);
-    }
-
     public override void OnDamaged(int damage)
     {
-        base.OnDamaged(damage);
+        if (_isInvincible) return;
+        _hp -= damage;
+        if (_hp <= 0)
+        {
+            _character.SetState(AnimationState.Dead);
+            _isAlive = false;
+            _collider.enabled = false;
+            Destroy(gameObject);
+        }
     }
-
+    protected Quaternion AttackAngle()
+    {
+        Vector2 dir = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z)) - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        return Quaternion.AngleAxis(angle + 90, Vector3.forward);
+    }
     IEnumerator CoStartAttack()
     {
-        while (true)
+        while (_isAlive)
         {
             yield return new WaitForSeconds(0.3f);
             _character.Animator.SetTrigger("Attack");
             GameObject arrow = Managers.Resource.Instantiate("Creature/Arrow");
             arrow.tag = "Player";
-            arrow.transform.rotation = ArrowShootAngle();
+            arrow.transform.rotation = AttackAngle();
             arrow.transform.position = transform.position;
-            Destroy(arrow,arrowLifeTime);
+            Destroy(arrow,_lifeTime);
         }
     }
 

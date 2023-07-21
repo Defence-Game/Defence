@@ -8,13 +8,21 @@ public class KnightController : MonsterController
     protected override void Start()
     {
         base.Start();
-        _attRange = (float)Define.MonsterAttRange.Knight;
+        _attRange = (float)Define.MonsterAttRange.Knight/30;
         _range = _attRange*2;
     }
 
-    protected override void Attack()
+    IEnumerator CoStartAttack()
     {
-
+        _character.Animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(1.0f);
+        _coAttack = null;
     }
-
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.tag != tag && _coAttack ==null)
+        {
+            _coAttack = StartCoroutine("CoStartAttack");
+        }
+    }
 }

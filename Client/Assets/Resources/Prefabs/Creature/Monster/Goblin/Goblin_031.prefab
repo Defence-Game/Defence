@@ -179,13 +179,12 @@ GameObject:
   - component: {fileID: 5135726249289072049}
   - component: {fileID: 5135726249289072048}
   - component: {fileID: 5135726249289072055}
-  - component: {fileID: 3623939864938031800}
   - component: {fileID: 8728484594724971022}
   - component: {fileID: 6778482593040911145}
   - component: {fileID: 5542637737836855420}
   m_Layer: 8
   m_Name: Goblin_031
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,24 +262,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3623939864938031800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5135726249289072010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48bd353b892da9e4eb38b17a69dbb234, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 5
-  _hp: 100
-  _attack: 10
-  _gold: 0
-  _character: {fileID: 5135726249289072049}
-  _target: {fileID: 0}
 --- !u!50 &8728484594724971022
 Rigidbody2D:
   serializedVersion: 4

@@ -15,4 +15,16 @@ public class MageController : MonsterController
     {
 
     }
+    IEnumerator CoStartAttack()
+    {
+        _character.Animator.SetTrigger("Attack");
+        GameObject ball = Managers.Resource.Instantiate("Creature/Fireballs/BallTailRed");
+        ball.tag = "Monster";
+        ball.transform.rotation = AttackAngle();
+        ball.transform.position = transform.position;
+        
+        Destroy(ball, _lifeTime);
+        yield return new WaitForSeconds(1.0f);
+        _coAttack = null;
+    }
 }

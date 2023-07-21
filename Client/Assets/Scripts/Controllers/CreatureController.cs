@@ -12,11 +12,13 @@ public class CreatureController : MonoBehaviour
     public int _gold = 0;
     protected float _range = 1.0f;
     protected float _attRange;
-    
+    protected float _lifeTime = 3.0f; // 투사체 생존 시간
+
     protected Rigidbody2D _rigidbody;
     protected Collider2D _collider;
     public Character _character;
-    
+
+    protected Coroutine _coAttack;
     protected Coroutine _coOnDamaged;
 
     protected virtual void Start()
@@ -40,6 +42,7 @@ public class CreatureController : MonoBehaviour
 
     public virtual void OnDamaged(int damage)
     {
+        
         _hp -= damage;
         if (_hp <= 0)
         {
@@ -55,4 +58,5 @@ public class CreatureController : MonoBehaviour
         _attack = 10+10 * (_level/2);
         _gold = 10 * (_level);
     }
+
 }

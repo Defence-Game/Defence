@@ -15,4 +15,15 @@ public class ArcherController : MonsterController
     {
 
     }
+    IEnumerator CoStartAttack()
+    {
+        _character.Animator.SetTrigger("Attack");
+        GameObject arrow = Managers.Resource.Instantiate("Creature/Arrow");
+        arrow.tag = "Monster";
+        arrow.transform.rotation = AttackAngle();
+        arrow.transform.position = transform.position;
+        Destroy(arrow, _lifeTime);
+        yield return new WaitForSeconds(1.0f);
+        _coAttack = null;
+    }
 }

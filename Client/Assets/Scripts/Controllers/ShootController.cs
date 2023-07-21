@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArrowController : MonoBehaviour
+public class ShootController : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
-    private float _arrowSpeed = 7.0f;
+    private float _speed = 5.0f;
     public static int _attack = (GameScene.StageLevel/2)*10+ 10;
     public int Attack { get { return (GameScene.StageLevel / 2) * 10 + 10;}}
     void Start()
@@ -16,7 +16,7 @@ public class ArrowController : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector2.up*_arrowSpeed*Time.deltaTime);
+        transform.Translate(Vector2.up* _speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
