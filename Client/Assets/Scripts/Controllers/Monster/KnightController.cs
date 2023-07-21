@@ -8,7 +8,7 @@ public class KnightController : MonsterController
     protected override void Start()
     {
         base.Start();
-        _attRange = (float)Define.MonsterAttRange.Knight/30;
+        _attRange = (float)Define.AttRange.Knight/30;
         _range = _attRange*2;
     }
 
