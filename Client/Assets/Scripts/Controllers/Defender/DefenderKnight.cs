@@ -22,6 +22,8 @@ public class DefenderKnight : DefenderController
         if (other.gameObject.tag != tag && _coAttack == null)
         {
             _coAttack = StartCoroutine("CoStartAttack");
+            CreatureController cc = other.gameObject.GetComponent<CreatureController>();
+            cc._hp -= _attack;
         }
     }
 }
