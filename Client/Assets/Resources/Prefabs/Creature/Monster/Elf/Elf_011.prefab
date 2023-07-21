@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CategoryHash: 0.009161512
-  m_labelHash: 1.2985474e-36
+  m_labelHash: 0.00000040954276
   m_SpriteKey: 1.3971405e-28
 --- !u!1 &5135726249289072010
 GameObject:
@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: -2406228857219728357}
   - component: {fileID: 1209438654048660672}
   - component: {fileID: -3167988746571613980}
+  - component: {fileID: 6341068639159788270}
   m_Layer: 8
   m_Name: Elf_011
   m_TagString: Untagged
@@ -327,3 +328,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15352014, y: 0.17259577}
   m_EdgeRadius: 0
+--- !u!114 &6341068639159788270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5135726249289072010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36821c209957cbd4c9e7a0bf8bd35d07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
