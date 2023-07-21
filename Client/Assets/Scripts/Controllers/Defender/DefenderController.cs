@@ -24,7 +24,7 @@ public class DefenderController : CreatureController
         if (_hp > 0 && _coAttack == null) Move();
         _rigidbody.velocity = Vector2.zero;
     }
-    public virtual void OnDamaged(int damage)
+    public override void OnDamaged(int damage)
     {
         _hp -= damage;
         if (_hp <= 0)

@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 5135726249289072055}
   - component: {fileID: 8761102473852164337}
   - component: {fileID: 2824501718120501814}
+  - component: {fileID: -7437529644077368038}
   m_Layer: 3
   m_Name: Defender_010
   m_TagString: Player
@@ -308,3 +309,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-7437529644077368038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5135726249289072010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d995d55e5b0c8e46a9ddc6f65fc15a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  _hp: 100
+  _attack: 10
+  _gold: 0
+  _character: {fileID: 5135726249289072049}
+  _target: {fileID: 0}

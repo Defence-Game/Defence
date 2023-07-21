@@ -29,7 +29,7 @@ public class MonsterController : CreatureController
         _rigidbody.velocity = Vector2.zero;
     }
 
-    public virtual void OnDamaged(int damage)
+    public override void OnDamaged(int damage)
     {
         _hp -= damage;
         if (_hp <= 0)
