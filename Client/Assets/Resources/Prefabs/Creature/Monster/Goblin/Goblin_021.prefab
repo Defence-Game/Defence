@@ -344,5 +344,5 @@ MonoBehaviour:
   _hp: 100
   _attack: 10
   _gold: 0
-  _character: {fileID: 0}
+  _character: {fileID: 5135726249289072049}
   _target: {fileID: 0}
