@@ -34,6 +34,12 @@ public class DefenderController : CreatureController
             Destroy(gameObject, 2f);
         }
     }
+    protected Quaternion AttackAngle()
+    {
+        Vector2 dir = _target.transform.position - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        return Quaternion.AngleAxis(angle - 90, Vector3.forward);
+    }
     protected override void Move()
     {
         if (_target != null)

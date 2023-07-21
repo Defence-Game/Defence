@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro.SpriteAssetUtilities;
 using UnityEngine;
 
-public class KnightController : MonsterController
+public class DefenderKnight : DefenderController
 {
     protected override void Start()
     {
         base.Start();
-        _attRange = (float)Define.AttRange.Knight/30;
-        _range = _attRange*2;
+        _attRange = (float)Define.AttRange.Knight / 30;
+        _range = _attRange * 2;
     }
 
     IEnumerator CoStartAttack()
@@ -20,7 +19,7 @@ public class KnightController : MonsterController
     }
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.tag != tag && _coAttack ==null)
+        if (other.gameObject.tag != tag && _coAttack == null)
         {
             _coAttack = StartCoroutine("CoStartAttack");
             CreatureController cc = other.gameObject.GetComponent<CreatureController>();
