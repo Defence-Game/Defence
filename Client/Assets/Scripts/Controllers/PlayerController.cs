@@ -19,6 +19,8 @@ public class PlayerController : CreatureController
     {
         base.Start();
         _coAttack = StartCoroutine("CoStartAttack");
+        if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
+            Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform,"DefenderHpBar");
     }
 
     protected override void Update()
