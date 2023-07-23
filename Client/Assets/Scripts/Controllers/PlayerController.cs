@@ -17,8 +17,7 @@ public class PlayerController : CreatureController
     
     protected override void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _sprite = GetComponent<SpriteRenderer>();
+        base.Start();
         _coAttack = StartCoroutine("CoStartAttack");
     }
 
@@ -45,8 +44,8 @@ public class PlayerController : CreatureController
         }
         else
         {
-            if (movement.x < 0) transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-            else transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            if (movement.x < 0) transform.Find("Body").transform.localScale= new Vector3(-1.0f, 1.0f, 1.0f);
+            else transform.Find("Body").transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             _character.SetState(AnimationState.Walking);
             _rigidbody.MovePosition(transform.position + movement * Time.deltaTime * _speed);
         }

@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using Assets.PixelHeroes.Scripts.CharacterScrips;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.UIElements;
 using AnimationState = Assets.PixelHeroes.Scripts.CharacterScrips.AnimationState;
 
 public class CreatureController : MonoBehaviour
 {
     public float _speed = 5.0f;
+    public int _maxHp = 100;
     public int _hp = 100;
     public int _attack = 10;
     public int _gold = 0;
     protected float _range = 1.0f;
     protected float _attRange;
-    protected float _lifeTime = 3.0f; // Åõ»çÃ¼ »ýÁ¸ ½Ã°£
+    protected float _lifeTime = 3.0f; // ï¿½ï¿½ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 
     protected Rigidbody2D _rigidbody;
     protected Collider2D _collider;
     public Character _character;
-
+    public Slider _hpBar;
+    
     protected Coroutine _coAttack;
     protected Coroutine _coOnDamaged;
 
@@ -27,7 +30,8 @@ public class CreatureController : MonoBehaviour
         _character.SetState(AnimationState.Idle);
         _rigidbody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
-
+        if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
+            Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform,"DefenderHpBar");
         SetState();
     }
 

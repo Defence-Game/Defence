@@ -48,16 +48,16 @@ public class MonsterController : CreatureController
             Vector3 dir = _target.transform.position - transform.position;
             if (_target.transform.position.x < transform.position.x)
             {
-                transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+                transform.Find("Body").transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
             }
             else
             {
-                transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                transform.Find("Body").transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             }
 
             if (dir.magnitude <= _attRange)
             {
-                // TODO : ÇÃ·¹ÀÌ¾î Attack ÇÏ´Â ºÎºÐ, ÇÃ·¹ÀÌ¾î¿Í °Å¸®°¡ »çÁ¤°Å¸® º¸´Ù Âª´Ù¸é °ø°Ý
+                // TODO : ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ Attack ï¿½Ï´ï¿½ ï¿½Îºï¿½, ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Âªï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½
                 if (_coAttack == null) _coAttack = StartCoroutine("CoStartAttack");
             }
             _rigidbody.MovePosition(transform.position + dir.normalized * _speed * Time.deltaTime);

@@ -47,11 +47,11 @@ public class DefenderController : CreatureController
             Vector3 dir = _target.transform.position - transform.position;
             if (_target.transform.position.x < transform.position.x)
             {
-                transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+                transform.Find("Body").transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
             }
             else
             {
-                transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                transform.Find("Body").transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             }
 
             if (dir.magnitude <= _attRange)
