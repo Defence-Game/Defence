@@ -21,6 +21,8 @@ public class MonsterController : CreatureController
         _layerMask = (1 << LayerMask.NameToLayer("Player"));
         _coSearch = StartCoroutine("CoSearch");
         _speed = 2.0f;
+        if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
+            Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform,"MonsterHpBar");
     }
 
     protected override void Update()

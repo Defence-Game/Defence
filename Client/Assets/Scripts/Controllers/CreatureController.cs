@@ -30,8 +30,6 @@ public class CreatureController : MonoBehaviour
         _character.SetState(AnimationState.Idle);
         _rigidbody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
-        if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
-            Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform,"DefenderHpBar");
         SetState();
     }
 
