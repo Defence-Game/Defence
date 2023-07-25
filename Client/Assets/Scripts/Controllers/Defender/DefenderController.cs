@@ -58,9 +58,9 @@ public class DefenderController : CreatureController
 
             if (dir.magnitude <= _attRange)
             {
-                if (_coAttack == null) _coAttack = StartCoroutine("CoStartAttack");
+                if (_coAttack == null && _target!=BaseScene.player) _coAttack = StartCoroutine("CoStartAttack");
             }
-            _rigidbody.MovePosition(transform.position + dir.normalized * _speed * Time.deltaTime);
+            else _rigidbody.MovePosition(transform.position + dir.normalized * _speed * Time.deltaTime);
         }
     }
     IEnumerator CoSearch()
@@ -70,7 +70,7 @@ public class DefenderController : CreatureController
             Collider2D col = Physics2D.OverlapCircle(transform.position, _range, _layerMask);
             if (col == null)
             {
-                _target = null;
+                _target = BaseScene.player;
             }
             else
             {
