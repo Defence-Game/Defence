@@ -60,9 +60,17 @@ public class PlayerController : CreatureController
         {
             _coBlock = StartCoroutine("CoBlock");
         }
-        if (Input.GetKey(KeyCode.F) && _deBlock == null && _defenderCoolDown < 0)
+        if (Input.GetKey(KeyCode.Z) && _deBlock == null && _defenderCoolDown < 0)//Defender Knight summon
         {
-            _deBlock = StartCoroutine("DeBlock");
+            _deBlock = StartCoroutine("DeBlockKnight");
+        }
+        if (Input.GetKey(KeyCode.X) && _deBlock == null && _defenderCoolDown < 0)//Defender Archer summon
+        {
+            _deBlock = StartCoroutine("DeBlockArcher");
+        }
+        if (Input.GetKey(KeyCode.C) && _deBlock == null && _defenderCoolDown < 0)//Defender Mage summon
+        {
+            _deBlock = StartCoroutine("DeBlockMage");
         }
     }
 
@@ -111,8 +119,23 @@ public class PlayerController : CreatureController
         _coolDown = _coolTime;
     }
 
-    IEnumerator DeBlock()
+    IEnumerator DeBlockKnight()
     {
+        Managers.Spawn.SpawnDefender(Define.DefenderType.Knight);
+        yield return new WaitForSeconds(0.1f);
+        _deBlock = null;
+        _defenderCoolDown = _defenderCoolTime;
+    }
+    IEnumerator DeBlockArcher()
+    {
+        Managers.Spawn.SpawnDefender(Define.DefenderType.Archer);
+        yield return new WaitForSeconds(0.1f);
+        _deBlock = null;
+        _defenderCoolDown = _defenderCoolTime;
+    }
+    IEnumerator DeBlockMage()
+    {
+        Managers.Spawn.SpawnDefender(Define.DefenderType.Mage);
         yield return new WaitForSeconds(0.1f);
         _deBlock = null;
         _defenderCoolDown = _defenderCoolTime;
