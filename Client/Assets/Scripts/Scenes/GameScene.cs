@@ -27,9 +27,9 @@ public class GameScene : BaseScene
         Managers.Monster.MakeMonster(Define.MonsterType.Skeleton,30);
 
        
-        Managers.Defender.MakeDefender(Define.DefenderType.Archer);
-        Managers.Defender.MakeDefender(Define.DefenderType.Knight);
-        Managers.Defender.MakeDefender(Define.DefenderType.Mage);
+        /*Managers.Defender.MakeDefender(Define.DefenderType.Archer, player.transform.position);
+        Managers.Defender.MakeDefender(Define.DefenderType.Knight, player.transform.position);
+        Managers.Defender.MakeDefender(Define.DefenderType.Mage, player.transform.position);*/
 
         //Managers.UI.ShowSceneUI<UI_Inven>();
         //Dictionary<int, Data.Stat> dict = Managers.Data.StatDict;

@@ -12,9 +12,11 @@ public class Managers : MonoBehaviour
     private MapManager _map = new MapManager();
     private MonsterManager _monster = new MonsterManager();
     private DefenderManager _defender = new DefenderManager();
+    private SpawnManager _spawn = new SpawnManager();
     public static MapManager Map { get { return Instance._map; } }
     public static MonsterManager Monster { get { return Instance._monster; } }
 	public static DefenderManager Defender { get { return Instance._defender; } }
+    public static SpawnManager Spawn { get { return Instance._spawn; } }
     #endregion
 
 	#region Core

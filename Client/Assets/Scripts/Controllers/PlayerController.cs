@@ -7,9 +7,12 @@ using AnimationState = Assets.PixelHeroes.Scripts.CharacterScrips.AnimationState
 public class PlayerController : CreatureController
 {
     private Coroutine _coBlock;
+    private Coroutine _deBlock;
     [SerializeField]
     private float _coolDown=0.0f;
     private float _coolTime = 10.0f;
+    private float _defenderCoolTime = 1.0f;
+    private float _defenderCoolDown = 0.0f;
     private SpriteRenderer _sprite;
     [SerializeField]
     private bool _isInvincible = false;
@@ -27,13 +30,14 @@ public class PlayerController : CreatureController
     {
         base.Update();
         _coolDown -= Time.deltaTime;
+        _defenderCoolDown -= Time.deltaTime;
     }
 
     void LateUpdate()
     {
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -2.5f);
     }
-
+ 
     protected override void Move()
     {
         Vector3 movement = new Vector3();
@@ -56,7 +60,18 @@ public class PlayerController : CreatureController
         {
             _coBlock = StartCoroutine("CoBlock");
         }
-
+        if (Input.GetKey(KeyCode.Z) && _deBlock == null && _defenderCoolDown < 0)//Defender Knight summon
+        {
+            _deBlock = StartCoroutine("DeBlockKnight");
+        }
+        if (Input.GetKey(KeyCode.X) && _deBlock == null && _defenderCoolDown < 0)//Defender Archer summon
+        {
+            _deBlock = StartCoroutine("DeBlockArcher");
+        }
+        if (Input.GetKey(KeyCode.C) && _deBlock == null && _defenderCoolDown < 0)//Defender Mage summon
+        {
+            _deBlock = StartCoroutine("DeBlockMage");
+        }
     }
 
     public override void OnDamaged(int damage)
@@ -104,4 +119,25 @@ public class PlayerController : CreatureController
         _coolDown = _coolTime;
     }
 
+    IEnumerator DeBlockKnight()
+    {
+        Managers.Spawn.SpawnDefender(Define.DefenderType.Knight);
+        yield return new WaitForSeconds(0.1f);
+        _deBlock = null;
+        _defenderCoolDown = _defenderCoolTime;
+    }
+    IEnumerator DeBlockArcher()
+    {
+        Managers.Spawn.SpawnDefender(Define.DefenderType.Archer);
+        yield return new WaitForSeconds(0.1f);
+        _deBlock = null;
+        _defenderCoolDown = _defenderCoolTime;
+    }
+    IEnumerator DeBlockMage()
+    {
+        Managers.Spawn.SpawnDefender(Define.DefenderType.Mage);
+        yield return new WaitForSeconds(0.1f);
+        _deBlock = null;
+        _defenderCoolDown = _defenderCoolTime;
+    }
 }
