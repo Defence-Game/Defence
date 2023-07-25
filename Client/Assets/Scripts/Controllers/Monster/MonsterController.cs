@@ -62,7 +62,7 @@ public class MonsterController : CreatureController
                 // TODO : �÷��̾� Attack �ϴ� �κ�, �÷��̾�� �Ÿ��� �����Ÿ� ���� ª�ٸ� ����
                 if (_coAttack == null) _coAttack = StartCoroutine("CoStartAttack");
             }
-            _rigidbody.MovePosition(transform.position + dir.normalized * _speed * Time.deltaTime);
+            else _rigidbody.MovePosition(transform.position + dir.normalized * _speed * Time.deltaTime);
         }
     }
     protected Quaternion AttackAngle()
