@@ -11,7 +11,7 @@ public class PlayerController : CreatureController
     [SerializeField]
     private float _coolDown=0.0f;
     private float _coolTime = 10.0f;
-    private float _defenderCoolTime = 10.0f;
+    private float _defenderCoolTime = 1.0f;
     private float _defenderCoolDown = 0.0f;
     private SpriteRenderer _sprite;
     [SerializeField]
