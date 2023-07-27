@@ -18,14 +18,6 @@ public class GameScene : BaseScene
 
         player = Managers.Resource.Instantiate("Creature/Player");
         player.name = "Player";
-        
-
-        Managers.Monster.MakeMonster(Define.MonsterType.Skeleton,10);
-        Managers.Monster.MakeMonster(Define.MonsterType.Skeleton,11);
-        Managers.Monster.MakeMonster(Define.MonsterType.Skeleton,20);
-        Managers.Monster.MakeMonster(Define.MonsterType.Skeleton,21);
-        Managers.Monster.MakeMonster(Define.MonsterType.Skeleton,30);
-
        
         /*Managers.Defender.MakeDefender(Define.DefenderType.Archer, player.transform.position);
         Managers.Defender.MakeDefender(Define.DefenderType.Knight, player.transform.position);
