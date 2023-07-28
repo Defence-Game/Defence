@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using UnityEditor;
 using UnityEngine;
 using AnimationState = Assets.PixelHeroes.Scripts.CharacterScrips.AnimationState;
 
@@ -25,7 +26,7 @@ public class PlayerController : CreatureController
         if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
             Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform,"DefenderHpBar");
     }
-
+    
     protected override void Update()
     {
         base.Update();
@@ -122,9 +123,12 @@ public class PlayerController : CreatureController
         _coBlock = null;
         _coolDown = _coolTime;
     }
-    void SummonDefender(Define.DefenderType type)
+    public void SummonDefender(Define.DefenderType type)
     {
-        Managers.Spawn.SpawnDefender(type);
+        GameObject player = GameObject.Find("Player");
+        Vector3 playerPos = player.transform.position;
+        Vector3 spawnPos = new Vector3(Random.Range(playerPos.x - 0.5f, playerPos.x + 0.5f), Random.Range(playerPos.y - 0.5f, playerPos.y + 0.5f), 0);
+        Managers.Defender.MakeDefender(type, spawnPos);
         _gold -= _summonGold;
         _defenderCoolDown = _defenderCoolTime;
     }

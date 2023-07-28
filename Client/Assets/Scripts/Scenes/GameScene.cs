@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class GameScene : BaseScene
 {
-    // TODO
-    // 스테이지 레벨에 맞춰 몬스터 hp,돈 늘리기
-    [SerializeField]
     public static int StageLevel { get; set; } = 1;
     private CreatureController cc;
     
@@ -63,6 +60,7 @@ public class GameScene : BaseScene
 
     void MonsterRandom()
     {
+        if (player == null) return;
         Vector3 playerPos = player.transform.position;
         monsterSpawn[0] = new Vector3(Random.Range(playerPos.x - 2.5f, playerPos.x - 2.0f), Random.Range(playerPos.y - 2.5f, playerPos.y + 2.5f), 0);
         monsterSpawn[1] = new Vector3(Random.Range(playerPos.x + 2.0f, playerPos.x + 2.5f), Random.Range(playerPos.y - 2.5f, playerPos.y + 2.5f), 0);
@@ -83,6 +81,7 @@ public class GameScene : BaseScene
             monType = Define.MonsterType.Skeleton;
         }
     }
+    
     public override void Clear()
     {
         
