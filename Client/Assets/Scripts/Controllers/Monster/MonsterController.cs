@@ -40,6 +40,7 @@ public class MonsterController : CreatureController
             _collider.enabled = false;
             CreatureController cc = GameScene.player.gameObject.GetComponent<CreatureController>();
             cc._gold += _gold;
+            ++cc._killCount;
             Destroy(gameObject, 2f);
         }
     }

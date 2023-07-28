@@ -7,7 +7,6 @@ using AnimationState = Assets.PixelHeroes.Scripts.CharacterScrips.AnimationState
 public class PlayerController : CreatureController
 {
     private Coroutine _coBlock;
-    private Coroutine _deBlock;
     [SerializeField]
     private float _coolDown=0.0f;
     private float _coolTime = 10.0f;
@@ -17,16 +16,7 @@ public class PlayerController : CreatureController
     [SerializeField]
     private bool _isInvincible = false;
     private bool _isAlive = true;
-
-    /*private Coroutine _spBlock;
-    [SerializeField]
-    private int[] monsterType = new int[6] { 10, 11, 20, 21, 30, 31 };
-    private int monsterInt;
-    private Vector3[] monsterSpawn = new Vector3[4];
-    private Vector3 monsterSpawnPos;
-    private float _spCoolDown = 0.0f;
-    private float _spCoolTime = 2.0f;
-    private Define.MonsterType monType;*/
+    private int _summonGold = 5;
 
     protected override void Start()
     {
@@ -41,7 +31,6 @@ public class PlayerController : CreatureController
         base.Update();
         _coolDown -= Time.deltaTime;
         _defenderCoolDown -= Time.deltaTime;
-        //_spCoolDown -= Time.deltaTime;
     }
 
     void LateUpdate()
@@ -71,44 +60,22 @@ public class PlayerController : CreatureController
         {
             _coBlock = StartCoroutine("CoBlock");
         }
-        if (Input.GetKey(KeyCode.Z) && _deBlock == null && _defenderCoolDown < 0)//Defender Knight summon
+        
+        if (_gold >= _summonGold && _defenderCoolDown < 0)
         {
-            _deBlock = StartCoroutine("DeBlockKnight");
+            if (Input.GetKey(KeyCode.Z))//Defender Knight summon
+            {
+                SummonDefender(Define.DefenderType.Knight);
+            }
+            if (Input.GetKey(KeyCode.X))//Defender Archer summon
+            {
+                SummonDefender(Define.DefenderType.Archer);
+            }
+            if (Input.GetKey(KeyCode.C))//Defender Mage summon
+            {
+                SummonDefender(Define.DefenderType.Mage);
+            }
         }
-        if (Input.GetKey(KeyCode.X) && _deBlock == null && _defenderCoolDown < 0)//Defender Archer summon
-        {
-            _deBlock = StartCoroutine("DeBlockArcher");
-        }
-        if (Input.GetKey(KeyCode.C) && _deBlock == null && _defenderCoolDown < 0)//Defender Mage summon
-        {
-            _deBlock = StartCoroutine("DeBlockMage");
-        }
-
-        /*GameObject player = GameObject.Find("Player");
-        Vector3 playerPos = player.transform.position;
-        monsterSpawn[0] = new Vector3(Random.Range(playerPos.x - 2.5f, playerPos.x - 2.0f), Random.Range(playerPos.y - 2.5f, playerPos.y + 2.5f), 0);
-        monsterSpawn[1] = new Vector3(Random.Range(playerPos.x + 2.0f, playerPos.x + 2.5f), Random.Range(playerPos.y - 2.5f, playerPos.y + 2.5f), 0);
-        monsterSpawn[2] = new Vector3(Random.Range(playerPos.x - 2.0f, playerPos.x + 2.0f), Random.Range(playerPos.y - 2.5f, playerPos.y - 2.0f), 0);
-        monsterSpawn[3] = new Vector3(Random.Range(playerPos.x - 2.0f, playerPos.x + 2.0f), Random.Range(playerPos.y + 2.0f, playerPos.y + 2.5f), 0);
-        monsterInt = Random.Range(0, 6);
-        monsterSpawnPos = monsterSpawn[Random.Range(0, 4)];
-        if (monsterType[monsterInt] < 20)
-        {
-            monType = Define.MonsterType.Elf;
-        }
-        else if (monsterType[monsterInt] < 30)
-        {
-            monType = Define.MonsterType.Goblin;
-        }
-        else
-        {
-            monType = Define.MonsterType.Skeleton;
-        }
-
-        if (_spBlock == null && _spCoolDown < 0)
-        {
-            _spBlock = StartCoroutine("SpBlock");
-        }*/
     }
 
     public override void OnDamaged(int damage)
@@ -155,34 +122,10 @@ public class PlayerController : CreatureController
         _coBlock = null;
         _coolDown = _coolTime;
     }
-
-    IEnumerator DeBlockKnight()
+    void SummonDefender(Define.DefenderType type)
     {
-        Managers.Spawn.SpawnDefender(Define.DefenderType.Knight);
-        yield return new WaitForSeconds(0.1f);
-        _deBlock = null;
+        Managers.Spawn.SpawnDefender(type);
+        _gold -= _summonGold;
         _defenderCoolDown = _defenderCoolTime;
     }
-    IEnumerator DeBlockArcher()
-    {
-        Managers.Spawn.SpawnDefender(Define.DefenderType.Archer);
-        yield return new WaitForSeconds(0.1f);
-        _deBlock = null;
-        _defenderCoolDown = _defenderCoolTime;
-    }
-    IEnumerator DeBlockMage()
-    {
-        Managers.Spawn.SpawnDefender(Define.DefenderType.Mage);
-        yield return new WaitForSeconds(0.1f);
-        _deBlock = null;
-        _defenderCoolDown = _defenderCoolTime;
-    }
-
-    /*IEnumerator SpBlock()
-    {
-        Managers.Monster.MakeMonster(monType, monsterType[monsterInt], monsterSpawnPos);
-        yield return new WaitForSeconds(0.1f);
-        _spBlock = null;
-        _spCoolDown = _spCoolTime;
-    }*/
 }
