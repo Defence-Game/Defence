@@ -16,6 +16,7 @@ public class CreatureController : MonoBehaviour
     protected float _range = 1.0f;
     protected float _attRange;
     protected float _lifeTime = 3.0f; // ����ü ���� �ð�
+    public int _killCount=0;
 
     protected Rigidbody2D _rigidbody;
     protected Collider2D _collider;
@@ -41,7 +42,7 @@ public class CreatureController : MonoBehaviour
 
     protected virtual void Move()
     {
-
+        
     }
 
     public virtual void OnDamaged(int damage)
@@ -50,7 +51,8 @@ public class CreatureController : MonoBehaviour
     public void SetState()
     {
         int _level = GameScene.StageLevel;
-        _hp = 100+ 10*(_level);
+        _maxHp = 100+ 10*(_level);
+        _hp = _maxHp;
         _attack = 10+10 * (_level/2);
         _gold = 10 * (_level);
     }
