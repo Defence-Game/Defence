@@ -45,7 +45,7 @@ public class UIManager
 		GameObject go = Managers.Resource.Instantiate($"UI/HpBar/{name}");
 		if (parent != null)
 			go.transform.SetParent(parent);
-
+		
         Canvas canvas = go.GetOrAddComponent<Canvas>();
         canvas.renderMode = RenderMode.WorldSpace;
         canvas.worldCamera = Camera.main;
