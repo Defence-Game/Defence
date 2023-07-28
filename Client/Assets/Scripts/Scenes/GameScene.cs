@@ -18,7 +18,7 @@ public class GameScene : BaseScene
 
         player = Managers.Resource.Instantiate("Creature/Player");
         player.name = "Player";
-       
+
         /*Managers.Defender.MakeDefender(Define.DefenderType.Archer, player.transform.position);
         Managers.Defender.MakeDefender(Define.DefenderType.Knight, player.transform.position);
         Managers.Defender.MakeDefender(Define.DefenderType.Mage, player.transform.position);*/
