@@ -11,13 +11,13 @@ public class PlayerController : CreatureController
     [SerializeField]
     private float _coolDown=0.0f;
     private float _coolTime = 10.0f;
-    private float _defenderCoolTime = 1.0f;
-    private float _defenderCoolDown = 0.0f;
+    public float _defenderCoolTime = 1.0f;
+    public float _defenderCoolDown = 0.0f;
     private SpriteRenderer _sprite;
     [SerializeField]
     private bool _isInvincible = false;
     private bool _isAlive = true;
-    private int _summonGold = 5;
+    public int _summonGold = 5;
 
     protected override void Start()
     {
@@ -60,22 +60,6 @@ public class PlayerController : CreatureController
         if (Input.GetKey(KeyCode.Space) && _coBlock==null && _coolDown<0)
         {
             _coBlock = StartCoroutine("CoBlock");
-        }
-        
-        if (_gold >= _summonGold && _defenderCoolDown < 0)
-        {
-            if (Input.GetKey(KeyCode.Z))//Defender Knight summon
-            {
-                SummonDefender(Define.DefenderType.Knight);
-            }
-            if (Input.GetKey(KeyCode.X))//Defender Archer summon
-            {
-                SummonDefender(Define.DefenderType.Archer);
-            }
-            if (Input.GetKey(KeyCode.C))//Defender Mage summon
-            {
-                SummonDefender(Define.DefenderType.Mage);
-            }
         }
     }
 
@@ -122,14 +106,5 @@ public class PlayerController : CreatureController
         _isInvincible = false;
         _coBlock = null;
         _coolDown = _coolTime;
-    }
-    public void SummonDefender(Define.DefenderType type)
-    {
-        GameObject player = GameObject.Find("Player");
-        Vector3 playerPos = player.transform.position;
-        Vector3 spawnPos = new Vector3(Random.Range(playerPos.x - 0.5f, playerPos.x + 0.5f), Random.Range(playerPos.y - 0.5f, playerPos.y + 0.5f), 0);
-        Managers.Defender.MakeDefender(type, spawnPos);
-        _gold -= _summonGold;
-        _defenderCoolDown = _defenderCoolTime;
     }
 }
