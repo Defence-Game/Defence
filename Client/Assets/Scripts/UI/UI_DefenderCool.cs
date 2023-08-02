@@ -33,6 +33,11 @@ public class UI_DefenderCool : UI_Base
         Mage_fillter,
     }
 
+    enum Texts
+    {
+        Gold
+    }
+
     public override void Init()
     {
         pc = BaseScene.player.GetComponent<PlayerController>();
@@ -40,7 +45,8 @@ public class UI_DefenderCool : UI_Base
 
         Bind<Button>(typeof(Buttons));
         Bind<Image>(typeof(Images));
-
+        Bind<Text>(typeof(Texts));
+        
         skillFilter.Add(GetImage((int)Images.Knight_fillter));
         skillFilter.Add(GetImage((int)Images.Archer_fillter));
         skillFilter.Add(GetImage((int)Images.Mage_fillter));
@@ -67,6 +73,8 @@ public class UI_DefenderCool : UI_Base
                 SummonDefender("UI_Mage");
             }
         }
+
+        GetText((int)Texts.Gold).text = $"Gold : {pc._gold}";
     }
     private void SummonDefender(string name)
     {
