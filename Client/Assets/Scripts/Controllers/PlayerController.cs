@@ -72,6 +72,7 @@ public class PlayerController : CreatureController
             _character.SetState(AnimationState.Dead);
             _isAlive = false;
             _collider.enabled = false;
+            Time.timeScale = 0;
             Destroy(gameObject);
         }
     }

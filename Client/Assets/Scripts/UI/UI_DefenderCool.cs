@@ -9,7 +9,7 @@ public class UI_DefenderCool : UI_Base
 {
     //public Image[] skillFilter = new Image[3];
     public List<Image> skillFilter = new List<Image>();
-    public Text coolTimeCounter; //남은 쿨타임을 표시할 텍스트
+    public Text _goldText; //남은 쿨타임을 표시할 텍스트
     public Button _btn;
 
     public float coolTime;
@@ -17,7 +17,9 @@ public class UI_DefenderCool : UI_Base
 
     private bool canSummon = true;
     private PlayerController pc;
-    private bool _pause = false;
+    private static bool _pause = false;
+
+    public static bool StatePause { get { return _pause; } set { _pause = value; } }
 
     enum Buttons
     {
@@ -47,7 +49,9 @@ public class UI_DefenderCool : UI_Base
         Bind<Button>(typeof(Buttons));
         Bind<Image>(typeof(Images));
         Bind<Text>(typeof(Texts));
-        
+
+        _goldText = GetText((int)Texts.GoldText);
+
         skillFilter.Add(GetImage((int)Images.Knight_fillter));
         skillFilter.Add(GetImage((int)Images.Archer_fillter));
         skillFilter.Add(GetImage((int)Images.Mage_fillter));
@@ -88,7 +92,7 @@ public class UI_DefenderCool : UI_Base
                 _pause = false;
             }
         }
-        GetText((int)Texts.GoldText).text = $" : {pc._gold}";
+        if(_goldText!=null)_goldText.text = $" : {pc._gold}";
     }
     private void Pause(PointerEventData data)
     {
@@ -96,11 +100,13 @@ public class UI_DefenderCool : UI_Base
         {
             Time.timeScale = 0;
             _pause = true;
+            Managers.UI.ShowPopupUI<UI_Pause>();
         }
         else
         {
             Time.timeScale = 1;
             _pause = false;
+            Managers.UI.ClosePopupUI();
         }
     }
     private void SummonDefender(string name)
