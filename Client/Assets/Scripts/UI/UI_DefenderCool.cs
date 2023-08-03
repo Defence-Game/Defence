@@ -35,7 +35,7 @@ public class UI_DefenderCool : UI_Base
 
     enum Texts
     {
-        GoldText
+        Gold
     }
 
     public override void Init()
@@ -61,7 +61,7 @@ public class UI_DefenderCool : UI_Base
         if (pc._gold >= pc._summonGold && pc._defenderCoolDown < 0)
         {
             if (Input.GetKey(KeyCode.Z))//Defender Knight summon
-            {
+            {   
                 SummonDefender("UI_Knight");
             }
             if (Input.GetKey(KeyCode.X))//Defender Archer summon
@@ -74,7 +74,7 @@ public class UI_DefenderCool : UI_Base
             }
         }
 
-        GetText((int)Texts.GoldText).text = $" : {pc._gold}";
+        GetText((int)Texts.Gold).text = $" : {pc._gold}";
     }
     private void SummonDefender(string name)
     {
