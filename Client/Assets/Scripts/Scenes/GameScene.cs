@@ -25,7 +25,6 @@ public class GameScene : BaseScene
 
         SceneType = Define.Scene.Game;
         Managers.Map.LoadMap(1);
-        
         player = Managers.Resource.Instantiate("Creature/Player");
         player.name = "Player";
         cc = player.GetComponent<CreatureController>();
