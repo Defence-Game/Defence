@@ -35,7 +35,7 @@ public class UI_DefenderCool : UI_Base
 
     enum Texts
     {
-        Gold
+        GoldText
     }
 
     public override void Init()
@@ -74,7 +74,7 @@ public class UI_DefenderCool : UI_Base
             }
         }
 
-        GetText((int)Texts.Gold).text = $"Gold : {pc._gold}";
+        GetText((int)Texts.GoldText).text = $" : {pc._gold}";
     }
     private void SummonDefender(string name)
     {
