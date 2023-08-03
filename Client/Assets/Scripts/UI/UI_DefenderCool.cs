@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class UI_DefenderCool : UI_Base
 {
-    //public Image[] skillFilter = new Image[3];
     public List<Image> skillFilter = new List<Image>();
     public Text _goldText; //남은 쿨타임을 표시할 텍스트
     public Button _btn;
@@ -81,18 +80,24 @@ public class UI_DefenderCool : UI_Base
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (_pause == false)
-            {
-                Time.timeScale = 0;
-                _pause = true;
-            }
-            else
-            {
-                Time.timeScale = 1;
-                _pause = false;
-            }
+            Pause();
         }
         if(_goldText!=null)_goldText.text = $" : {pc._gold}";
+    }
+    private void Pause()
+    {
+        if (_pause == false)
+        {
+            Time.timeScale = 0;
+            _pause = true;
+            Managers.UI.ShowPopupUI<UI_Pause>();
+        }
+        else
+        {
+            Time.timeScale = 1;
+            _pause = false;
+            Managers.UI.ClosePopupUI();
+        }
     }
     private void Pause(PointerEventData data)
     {
