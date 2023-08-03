@@ -15,9 +15,7 @@ public class GameScene : BaseScene
     private float _spCoolDown = 0.0f;
     private float _spCoolTime = 5.0f;
     private Define.MonsterType monType;
-    private bool _pause = false;
-
-
+    
     private Coroutine _spBlock;
     
     protected override void Init()
@@ -43,20 +41,6 @@ public class GameScene : BaseScene
             cc._attack += 10;
             cc._maxHp += 10;
             cc._hp += 10;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (_pause == false)
-            {
-                Time.timeScale = 0;
-                _pause = true;
-            }
-            else
-            {
-                Time.timeScale = 1;
-                _pause = false;
-            }
         }
     }
     IEnumerator SpBlock()

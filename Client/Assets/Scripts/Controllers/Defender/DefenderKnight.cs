@@ -23,7 +23,7 @@ public class DefenderKnight : DefenderController
         {
             _coAttack = StartCoroutine("CoStartAttack");
             CreatureController cc = other.gameObject.GetComponent<CreatureController>();
-            cc.OnDamaged(_attack);
+            cc._hp -= _attack;
         }
     }
 }
