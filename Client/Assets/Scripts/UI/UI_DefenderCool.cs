@@ -13,17 +13,18 @@ public class UI_DefenderCool : UI_Base
     public Button _btn;
 
     public float coolTime;
-
     private float currentCoolTime; //남은 쿨타임
 
     private bool canSummon = true;
     private PlayerController pc;
+    private bool _pause = false;
 
     enum Buttons
     {
         UI_Knight,
         UI_Archer,
         UI_Mage,
+        Pause
     }
 
     enum Images
@@ -35,7 +36,7 @@ public class UI_DefenderCool : UI_Base
 
     enum Texts
     {
-        Gold
+        GoldText
     }
 
     public override void Init()
@@ -54,6 +55,7 @@ public class UI_DefenderCool : UI_Base
         GetButton((int)Buttons.UI_Knight).gameObject.BindEvent(SummonDefender);
         GetButton((int)Buttons.UI_Archer).gameObject.BindEvent(SummonDefender);
         GetButton((int)Buttons.UI_Mage).gameObject.BindEvent(SummonDefender);
+        GetButton((int)Buttons.Pause).gameObject.BindEvent(Pause);
     }
 
     public void Update()
@@ -73,8 +75,33 @@ public class UI_DefenderCool : UI_Base
                 SummonDefender("UI_Mage");
             }
         }
-
-        GetText((int)Texts.Gold).text = $" : {pc._gold}";
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (_pause == false)
+            {
+                Time.timeScale = 0;
+                _pause = true;
+            }
+            else
+            {
+                Time.timeScale = 1;
+                _pause = false;
+            }
+        }
+        GetText((int)Texts.GoldText).text = $" : {pc._gold}";
+    }
+    private void Pause(PointerEventData data)
+    {
+        if (_pause == false)
+        {
+            Time.timeScale = 0;
+            _pause = true;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            _pause = false;
+        }
     }
     private void SummonDefender(string name)
     {
