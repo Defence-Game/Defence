@@ -30,6 +30,8 @@ public class GameScene : BaseScene
         cc = player.GetComponent<CreatureController>();
         
         _spBlock = StartCoroutine("SpBlock");
+
+        Managers.UI.ShowSceneUI<UI_DefenderCool>();
     }
 
     private void Update()
