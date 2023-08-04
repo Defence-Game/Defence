@@ -15,8 +15,8 @@ public class CameraController : MonoBehaviour
         player = GameScene.player;
         cameraHalfWidth = Camera.main.aspect * Camera.main.orthographicSize;
         cameraHalfHeight = Camera.main.orthographicSize;
-        minPos = new Vector2(-26 + cameraHalfWidth, -16 + cameraHalfHeight);
-        maxPos = new Vector2(29 - cameraHalfWidth, 16 - cameraHalfHeight);
+        minPos = new Vector2(GameScene.LimitXDown + cameraHalfWidth, GameScene.LimitYDown + cameraHalfHeight);
+        maxPos = new Vector2(GameScene.LimitXUp - cameraHalfWidth, GameScene.LimitYUp - cameraHalfHeight);
     }
     void LateUpdate()
     {
@@ -24,6 +24,7 @@ public class CameraController : MonoBehaviour
         
         targetPos.x = Mathf.Clamp(targetPos.x, minPos.x, maxPos.x);
         targetPos.y = Mathf.Clamp(targetPos.y, minPos.y, maxPos.y);
+
         transform.position = targetPos;
     }
 }
