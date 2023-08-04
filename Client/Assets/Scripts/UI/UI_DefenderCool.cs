@@ -121,7 +121,7 @@ public class UI_DefenderCool : UI_Base
             GameObject player = GameObject.Find("Player");
             Vector3 playerPos = player.transform.position;
             Vector3 spawnPos = new Vector3(Random.Range(playerPos.x - 0.5f, playerPos.x + 0.5f), Random.Range(playerPos.y - 0.5f, playerPos.y + 0.5f), 0);
-
+            
             switch (name)
             {
                 case "UI_Archer":
