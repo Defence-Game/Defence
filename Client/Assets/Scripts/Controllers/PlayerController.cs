@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using AnimationState = Assets.PixelHeroes.Scripts.CharacterScrips.AnimationState;
 
 public class PlayerController : CreatureController
@@ -74,6 +75,7 @@ public class PlayerController : CreatureController
             _collider.enabled = false;
             Time.timeScale = 0;
             Destroy(gameObject);
+            SceneManager.LoadScene("Lobby");
         }
     }
     protected Quaternion AttackAngle()

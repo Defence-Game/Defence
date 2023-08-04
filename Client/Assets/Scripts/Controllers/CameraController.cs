@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.U2D.Animation;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -20,6 +17,7 @@ public class CameraController : MonoBehaviour
     }
     void LateUpdate()
     {
+        if (player == null) return;
         Vector3 targetPos = new Vector3(player.transform.position.x, player.transform.position.y, this.transform.position.z);
         
         targetPos.x = Mathf.Clamp(targetPos.x, minPos.x, maxPos.x);
