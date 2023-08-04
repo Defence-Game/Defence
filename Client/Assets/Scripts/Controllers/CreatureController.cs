@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using Assets.PixelHeroes.Scripts.CharacterScrips;
-using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.UIElements;
 using AnimationState = Assets.PixelHeroes.Scripts.CharacterScrips.AnimationState;
 
 public class CreatureController : MonoBehaviour

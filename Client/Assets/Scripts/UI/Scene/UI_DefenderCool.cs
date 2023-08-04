@@ -55,10 +55,22 @@ public class UI_DefenderCool : UI_Scene
         skillFilter.Add(GetImage((int)Images.Archer_fillter));
         skillFilter.Add(GetImage((int)Images.Mage_fillter));
 
-        GetButton((int)Buttons.UI_Knight).gameObject.BindEvent(SummonDefender);
-        GetButton((int)Buttons.UI_Archer).gameObject.BindEvent(SummonDefender);
-        GetButton((int)Buttons.UI_Mage).gameObject.BindEvent(SummonDefender);
-        GetButton((int)Buttons.Pause).gameObject.BindEvent(Pause);
+        if (GetButton((int)Buttons.UI_Knight) != null)
+        {
+            GetButton((int)Buttons.UI_Knight).gameObject.BindEvent(SummonDefender);
+        }
+        if (GetButton((int)Buttons.UI_Archer) != null)
+        {
+            GetButton((int)Buttons.UI_Archer).gameObject.BindEvent(SummonDefender);
+        }
+        if (GetButton((int)Buttons.UI_Mage) != null)
+        {
+            GetButton((int)Buttons.UI_Mage).gameObject.BindEvent(SummonDefender);
+        }
+        if (GetButton((int)Buttons.Pause) != null)
+        {
+            GetButton((int)Buttons.Pause).gameObject.BindEvent(Pause);
+        }
     }
 
     public void Update()
