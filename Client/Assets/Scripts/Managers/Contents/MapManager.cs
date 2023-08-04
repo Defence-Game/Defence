@@ -13,7 +13,7 @@ public class MapManager
         GameObject go = Managers.Resource.Instantiate($"Map/{mapName}");
         go.name = "Map";
     }
-
+    
     public void DestroyMap()
     {
        
