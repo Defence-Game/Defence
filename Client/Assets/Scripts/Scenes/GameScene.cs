@@ -23,6 +23,7 @@ public class GameScene : BaseScene
     {
         base.Init();
 
+        StageLevel = 1;
         SceneType = Define.Scene.Game;
         Managers.Map.LoadMap(1);
         player = Managers.Resource.Instantiate("Creature/Player");

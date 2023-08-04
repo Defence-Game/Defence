@@ -20,6 +20,7 @@ public class KnightController : MonsterController
     }
     private void OnCollisionStay2D(Collision2D other)
     {
+        if (other.gameObject.tag == "Wall") return;
         if (other.gameObject.tag != tag && _coAttack ==null)
         {
             _coAttack = StartCoroutine("CoStartAttack");

@@ -21,6 +21,7 @@ public class ShootController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.tag == "Wall") return;
         if (other.gameObject.tag != tag)
         {
             Debug.Log(other.gameObject.name);
