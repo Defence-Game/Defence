@@ -80,7 +80,7 @@ public class PlayerController : CreatureController
     {
         Vector2 dir = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z)) - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        return Quaternion.AngleAxis(angle + 90, Vector3.forward);
+        return Quaternion.AngleAxis(angle - 90, Vector3.forward);
     }
     IEnumerator CoStartAttack()
     {
