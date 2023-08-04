@@ -16,7 +16,11 @@ public class GameScene : BaseScene
     private float _spCoolDown = 0.0f;
     private float _spCoolTime = 5.0f;
     private Define.MonsterType monType;
-    
+    public static int LimitXUp = 29;
+    public static int LimitXDown = -26;
+    public static int LimitYUp = 16;
+    public static int LimitYDown = -16;
+
     private Coroutine _spBlock;
     
     protected override void Init()
@@ -70,6 +74,12 @@ public class GameScene : BaseScene
         monsterSpawn[3] = new Vector3(Random.Range(playerPos.x - 2.0f, playerPos.x + 2.0f), Random.Range(playerPos.y + 2.0f, playerPos.y + 2.5f), 0);
         monsterInt = Random.Range(0, 6);
         monsterSpawnPos = monsterSpawn[Random.Range(0, 4)];
+
+        monsterSpawnPos.x = Mathf.Max(LimitXDown, monsterSpawnPos.x);
+        monsterSpawnPos.x = Mathf.Min(LimitXUp, monsterSpawnPos.x);
+        monsterSpawnPos.y = Mathf.Max(LimitYDown, monsterSpawnPos.y);
+        monsterSpawnPos.y = Mathf.Min(LimitYUp, monsterSpawnPos.y);
+
         if (monsterType[monsterInt] < 20)
         {
             monType = Define.MonsterType.Elf;
