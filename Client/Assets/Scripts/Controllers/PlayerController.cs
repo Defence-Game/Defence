@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using AnimationState = Assets.PixelHeroes.Scripts.CharacterScrips.AnimationState;
 
 public class PlayerController : CreatureController
@@ -34,12 +33,6 @@ public class PlayerController : CreatureController
         _coolDown -= Time.deltaTime;
         _defenderCoolDown -= Time.deltaTime;
     }
-
-    void LateUpdate()
-    {
-        //Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -2.5f);
-    }
- 
     protected override void Move()
     {
         Vector3 movement = new Vector3();
@@ -75,7 +68,7 @@ public class PlayerController : CreatureController
             _collider.enabled = false;
             Time.timeScale = 0;
             Destroy(gameObject);
-            SceneManager.LoadScene("Lobby");
+            Managers.UI.ShowSceneUI<UI_GameOver>();
         }
     }
     protected Quaternion AttackAngle()
