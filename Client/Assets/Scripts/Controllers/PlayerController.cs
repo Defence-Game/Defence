@@ -22,6 +22,8 @@ public class PlayerController : CreatureController
     protected override void Start()
     {
         base.Start();
+        _maxHp += 100;
+        _hp = _maxHp;
         _coAttack = StartCoroutine("CoStartAttack");
         if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
             Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform,"DefenderHpBar");
