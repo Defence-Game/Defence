@@ -9,18 +9,22 @@ public class GameScene : BaseScene
     private CreatureController cc;
     
     // monster
+    [SerializeField]
+    public static int _monsterNum = 0;
     private int[] monsterType = new int[6] { 10, 11, 20, 21, 30, 31 };
     private int monsterInt;
     private Vector3[] monsterSpawn = new Vector3[4];
     private Vector3 monsterSpawnPos;
     private float _spCoolDown = 0.0f;
     private float _spCoolTime = 5.0f;
+    
     private Define.MonsterType monType;
+    
     public static int LimitXUp = 29;
     public static int LimitXDown = -26;
     public static int LimitYUp = 16;
     public static int LimitYDown = -16;
-
+    
     private Coroutine _spBlock;
     
     protected override void Init()
@@ -57,14 +61,16 @@ public class GameScene : BaseScene
             yield return new WaitForSeconds(2.0f);
             for (int i = 0; i < 7; i++)
             {
+                if(_monsterNum>14)continue;
                 MonsterRandom();
                 Managers.Monster.MakeMonster(monType, monsterType[monsterInt], monsterSpawnPos);
+                _monsterNum++;
             }
             yield return new WaitForSeconds(8.0f);
         }
         
     }
-
+    
     void MonsterRandom()
     {
         if (player == null) return;
@@ -97,6 +103,6 @@ public class GameScene : BaseScene
     
     public override void Clear()
     {
-        
+        _monsterNum = 0;
     }
 }

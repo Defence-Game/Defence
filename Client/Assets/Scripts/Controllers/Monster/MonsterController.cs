@@ -41,6 +41,7 @@ public class MonsterController : CreatureController
             CreatureController cc = GameScene.player.gameObject.GetComponent<CreatureController>();
             cc._gold += _gold;
             ++cc._killCount;
+            GameScene._monsterNum--;
             Destroy(gameObject, 2f);
         }
     }

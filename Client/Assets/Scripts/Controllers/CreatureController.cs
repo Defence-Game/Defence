@@ -13,7 +13,7 @@ public class CreatureController : MonoBehaviour
     protected float _attRange;
     protected float _lifeTime = 3.0f; // ����ü ���� �ð�
     public int _killCount=0;
-    
+
     protected Rigidbody2D _rigidbody;
     protected Collider2D _collider;
     public Character _character;
