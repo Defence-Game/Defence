@@ -129,9 +129,11 @@ public class UI_DefenderCool : UI_Scene
     }
     private void SummonDefender(string name)
     {
+        
         if (canSummon && pc._gold >= pc._summonGold)
         {
             GameObject player = GameObject.Find("Player");
+            if (player == null) return;
             Vector3 playerPos = player.transform.position;
             Vector3 spawnPos = new Vector3(Random.Range(playerPos.x - 0.5f, playerPos.x + 0.5f), Random.Range(playerPos.y - 0.5f, playerPos.y + 0.5f), 0);
             
