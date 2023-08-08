@@ -54,6 +54,7 @@ public class UI_DefenderCool : UI_Scene
         skillFilter.Add(GetImage((int)Images.Knight_fillter));
         skillFilter.Add(GetImage((int)Images.Archer_fillter));
         skillFilter.Add(GetImage((int)Images.Mage_fillter));
+        
 
         if (GetButton((int)Buttons.UI_Knight) != null)
         {
